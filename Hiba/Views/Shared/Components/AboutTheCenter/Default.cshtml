@@ -1,0 +1,30 @@
+﻿@model Page
+@if (Model!=null)
+	{
+        <div class="section layout_padding padding_bottom-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="full">
+                            <div class="heading_main text_align_left">
+                                <h2><span>@ViewBag.Title1</span> @ViewBag.Title2</h2>
+                            </div>
+                            <div class="full">
+                                <p>
+                                    @Html.Raw(@Model.Text)
+                                </p>
+                            </div>
+                            <div class="full">
+                                <a class="hvr-radial-out button-theme" href="#">See More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="full">
+                            <img class="img-responsive" src="@Model.Image" alt="#" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	}

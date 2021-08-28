@@ -1,0 +1,226 @@
+﻿@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{ 
+    string dir = "ltr";
+    string textAlign = "left";
+    string lang = @Localizer["Lang"].Value;
+    string logo = "/images/logo english.png";
+
+    if (lang == "ar")
+    {
+        dir = "rtl";
+        textAlign = "right";
+        logo = "/images/‏‏logo arabic.png";
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hiba</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <link href="~/css/flashy.min.css" rel="stylesheet" />
+    <link href="~/css/flaticon.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/pogo-slider.min.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/responsiveslides.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/timeline.css" rel="stylesheet" />
+
+</head>
+
+<body style="text-align:@textAlign"> 
+    <header class="top-header" dir="rtl">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="@logo" alt="image"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    @*<ul class="navbar-nav" style="direction:@dir">*@
+                   <ul class="navbar-nav">
+                    <li><a class="nav-link active" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" asp-controller="News" asp-action="Index" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Localizer["About"]
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="AboutCenter">@Localizer["About The Center"]</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="About">@Localizer["About Us"]</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="OurVision">@Localizer["Our Vision"]</a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" asp-controller="Service" asp-action="Index" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Localizer["Services"]
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                <a class="dropdown-item" asp-controller="Service" asp-action="SocialAndImprovementConsultations">@Localizer["Social and development counseling"]</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="Training">@Localizer["Training"]</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="EconomicConsultations">@Localizer["Economic Consultations"]</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="NutritionAndHealthConsultations">@Localizer["Nutrition and health consultations"]</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="Coaching">@Localizer["Coaching"]</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="LecturesWorkshops">@Localizer["Lectures and workshops"]</a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li><a class="nav-link" asp-controller="News" asp-action="List">@Localizer["News"]</a></li>
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Contact">@Localizer["Contact Us"]</a></li>
+                    <li>
+                        <div class="dropdown show">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Localizer["Languages"]
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="en-US" class="dropdown-item">Englih</a>
+                                <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-lang="ar" class="dropdown-item">Arabic</a>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+                @*<div class="search-box">
+                    <input type="text" class="search-txt" placeholder="Search">
+                    <a class="search-btn">
+                        <img src="~/images/search_icon.png" alt="#" />
+                    </a>
+                </div>*@
+            </div>
+        </nav>
+    </header>
+    <div style="direction:@dir;text-align:@textAlign"  class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - Hiba - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+    <footer class="footer-box">
+        <div class="container">
+
+            <div class="row">
+
+                
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <img style="width:250px;height:400px" src="~/images/footer_logo.png" alt="#" />
+                </div>
+                    
+                    @*<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div class="footer_blog">
+                <div class="full margin-bottom_30">
+                    <img src="~/images/footer_logo.png" alt="#" />
+                </div>
+                <div class="full white_fonts">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div class="footer_blog footer_menu white_fonts">
+                <h3>@Localizer["Quick links"]</h3>
+                <ul>
+                    <li><a href="#">> Join Us</a></li>
+                    <li><a href="#">> Maintenance</a></li>
+                    <li><a href="#">> Language Packs</a></li>
+                    <li><a href="#">> LearnPress</a></li>
+                    <li><a href="#">> Release Status</a></li>
+                </ul>
+            </div>
+        </div>*@
+
+                    @*<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="footer_blog full white_fonts">
+                            <h3>@Localizer["Contact Us"]</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                            <div class="newsletter_form">
+                                <form action="index.html">
+                                    <input type="email" placeholder="Your Email" name="#" required />
+                                    <button>Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="footer_blog full white_fonts">
+                            <h3>@Localizer["Contact info"]</h3>
+                            <ul class="full">
+                                <li><img src="~/images/i5.png"><span>@Localizer["Damascus"] @Localizer["Syria"]</span></li>
+                                <li><img src="~/images/i6.png"><span>hebaathssi@gmail.com</span></li>
+                                <li><img src="~/images/i7.png"><span>+963 964 465 956</span></li>
+                                <li>
+                                    <a href="https://www.facebook.com/hebaforsocialandselfimprovement">
+                                        <img src="~/images/facebook.png">
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UC2lR49yFSOolFzXl8etO5Ow">
+                                        <img src="~/images/youtube.png">
+                                    </a>
+                                    <a href="https://t.me/hebaforsocialselfimprovemen">
+                                        <img src="~/images/telegram.png">
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://twitter.com/hiba_kahwaji">
+                                        <img src="~/images/twitter.png">
+                                    </a>
+                                    <a href="https://www.instagram.com/heba.social.self.improvement">
+                                        <img src="~/images/instagram.png" />
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/hiba-kahwaji-0b30601ba/">
+                                        <img src="~/images/linkedin.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="~/js/contact-form-script.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/form-validator.min.js"></script>
+    <script src="~/js/images-loded.min.js"></script>
+    <script src="~/js/isotope.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.pogo-slider.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/slider-index.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/smoothscroll.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

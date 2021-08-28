@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiba", "Hiba\Hiba.csproj", "{9605AAEC-3F04-4653-8C80-657E34A91B73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9605AAEC-3F04-4653-8C80-657E34A91B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9605AAEC-3F04-4653-8C80-657E34A91B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9605AAEC-3F04-4653-8C80-657E34A91B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9605AAEC-3F04-4653-8C80-657E34A91B73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C096A20-C563-4381-9D4A-327DA4E0EEC7}
+	EndGlobalSection
+EndGlobal
