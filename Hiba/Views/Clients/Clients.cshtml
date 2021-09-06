@@ -141,7 +141,7 @@
                         <div class="col-md-4">
                             <div class="full blog_img_popular">
                                 <img class="img-responsive" src="~/images/p1.png" alt="#" />
-                                <h4><a asp-controller="Service">@item.Name</a></h4>
+                                <h4><a asp-controller="clients" asp-action="client" asp-route-id="@item.ID">@item.Name</a></h4>
                             </div>
                         </div>
                     }

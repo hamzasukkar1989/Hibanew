@@ -24,6 +24,11 @@ namespace Hiba.Controllers
         }
 
         // GET: Clients
+        public async Task<IActionResult> Client(int id)
+        {
+            var data = await _context.Clients.SingleOrDefaultAsync(c => c.ID == id);
+            return View(data);
+        }
         public async Task<IActionResult> Index()
         {
             return View(await _context.Clients.ToListAsync());

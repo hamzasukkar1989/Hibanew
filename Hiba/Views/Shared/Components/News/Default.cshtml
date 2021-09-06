@@ -26,43 +26,55 @@
                                                     <img class="img-responsive" src="images/img9.png" alt="#" />
                                                     <a asp-controller="News" asp-action="News" asp-route-id="@Model.ElementAt(0).ID">
                                                         <h4>@Model.ElementAt(0).Name</h4>
-                                                    </a>                                                    
+                                                    </a>
                                                     <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="full blog_img_popular">
-                                                    <img class="img-responsive" src="images/img8.png" alt="#" />
-                                                    <a asp-controller="News" asp-action="News" asp-route-id="@Model.ElementAt(0).ID">
-                                                        <h4>@Model.ElementAt(1).Name</h4>
-                                                    </a>                                                   
-                                                    <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                                            @if (@Model.ToList().Count > 1)
+                                            {
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <div class="full blog_img_popular">
+                                                        <img class="img-responsive" src="images/img8.png" alt="#" />
+                                                        <a asp-controller="News" asp-action="News" asp-route-id="@Model.ElementAt(1).ID">
+                                                            <h4>@Model.ElementAt(1).Name</h4>
+                                                        </a>
+                                                        <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
+
                                         </div>
                  </div>
                                 
              <div class="carousel-item">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="full blog_img_popular">
-                            <img class="img-responsive" src="images/img9.png" alt="#" />
-                            <a asp-controller="News" asp-action="News">
-                                <h4>@Model.ElementAt(2).Name</h4>
-                            </a>                          
-                            <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="full blog_img_popular">
-                            <img class="img-responsive" src="images/img8.png" alt="#" />
-                            <a asp-controller="News" asp-action="News">
-                                <h4>@Model.ElementAt(3).Name</h4>
-                            </a>                            
-                            <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        </div>
-                    </div>
-                </div>
+                 <div class="row">
+                     @if (@Model.ToList().Count > 2)
+                     {
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                             <div class="full blog_img_popular">
+                                 <img class="img-responsive" src="images/img9.png" alt="#" />
+                                 <a asp-controller="News" asp-action="News">
+                                     <h4>@Model.ElementAt(2).Name</h4>
+                                 </a>
+                                 <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                             </div>
+                         </div>
+                     }
+
+                     @if (@Model.ToList().Count > 3)
+                     {
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                             <div class="full blog_img_popular">
+                                 <img class="img-responsive" src="images/img8.png" alt="#" />
+                                 <a asp-controller="News" asp-action="News">
+                                     <h4>@Model.ElementAt(3).Name</h4>
+                                 </a>
+                                 <p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                             </div>
+                         </div>
+                     }
+
+                 </div>
             </div>
         </div>
 
