@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Hiba.Controllers
 {
@@ -16,11 +18,14 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        readonly IWebHostEnvironment _webHostEnvironment;
 
-        public NewsController(ApplicationDbContext context, IUploadFile upload)
+
+        public NewsController(ApplicationDbContext context, IUploadFile upload, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _upload = upload;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: News
