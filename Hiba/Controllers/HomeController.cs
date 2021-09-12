@@ -90,21 +90,21 @@ namespace Hiba.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult WhoAreWe()
         {
 
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             ViewBag.lang = cultureInfo.ToString();
-            var data = _context.Pages.Where(p => p.Name == "About" && p.Lang == cultureInfo.ToString()).FirstOrDefault();
+            var data = _context.Pages.Where(p => p.Name == "WhoAreWe" && p.Lang == cultureInfo.ToString()).FirstOrDefault();
             return View(data);
         }
-        public IActionResult AboutCenter()
+        public IActionResult AboutTheCenter()
         {
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             ViewBag.lang = cultureInfo.ToString();
-            var data = _context.Pages.Where(p => p.Name == "AboutCenter" && p.Lang== cultureInfo.ToString()).FirstOrDefault();
+            var data = _context.Pages.Where(p => p.Name == "AboutTheCenter" && p.Lang== cultureInfo.ToString()).FirstOrDefault();
             return View(data);
         }
         public IActionResult Privacy()

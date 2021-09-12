@@ -25,32 +25,46 @@ namespace Hiba.Controllers
 
         public IActionResult Coaching()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Coaching");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Coaching" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/Coaching/Index.cshtml",data);
         }
         public IActionResult NutritionAndHealthConsultations()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/NutritionAndHealthConsultations/Index.cshtml",data);
         }
         public IActionResult FinancialConsults()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Financial Consults");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Financial Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/FinancialConsults.cshtml", data);
         }
         public IActionResult EconomicConsults()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Economic Consults");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Economic Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/EconomicConsults.cshtml",data);
         }
         public IActionResult ManagementConsults()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Management Consults");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Management Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/ManagementConsults.cshtml", data);
         }
         public IActionResult EconomicConsultations()
         {
-            return View("~/Views/Service/EconomicConsultations/Index.cshtml");
+            ViewBag.Title1 = "Economic";
+            ViewBag.Title2 = "Consultations";
+            ViewBag.FinancialConsults = "Financial Consults";
+            ViewBag.EconomicConsults = "Economic Consults";
+            ViewBag.ManagementConsults = "Management Consults";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.Title1 = "استشارات";
+                ViewBag.Title2 = "اقتصادية";
+                ViewBag.FinancialConsults = "استشارات مالية";
+                ViewBag.EconomicConsults = "استشارات اقتصادية";
+                ViewBag.ManagementConsults = "استشارات إدارية";
+            }
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Economic Consultations" && p.Lang == cultureInfo.ToString());
+            return View("~/Views/Service/EconomicConsultations/Index.cshtml",data);
         }
         public IActionResult FamilyConsultations()
         {
@@ -63,32 +77,32 @@ namespace Hiba.Controllers
             {
                 ViewBag.Title1 = "استشارات";
                 ViewBag.Title2 = "أسرية";
-                ViewBag.AdolescentCounseling = "استشارات في تربية الأبناء";
+                ViewBag.AdolescentCounseling = "استشارات للمراهقين";
                 ViewBag.MaritalConsultations = "استشارات زوجية";
-                ViewBag.RaisingChildrenConsultations = "استشارات للمراهقين";
+                ViewBag.RaisingChildrenConsultations = "استشارات في تربية الأبناء";
             }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/Index.cshtml");
         }
         public IActionResult RaisingChildrenConsultations()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Raising Children Consultations");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Raising Children Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/RaisingChildrenConsultations.cshtml",data);
         }
 
         public IActionResult MaritalConsultations()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Marital Consultations");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Marital Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/MaritalConsultations.cshtml",data);
         }
         public IActionResult AdolescentCounseling()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Adolescent Counseling");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Adolescent Counseling" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/AdolescentCounseling.cshtml",data);
         }
 
         public IActionResult PsychologicalCounseling()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Psychological Counseling");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Psychological Counseling"&& p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/PsychologicalCounseling/Index.cshtml",data);
         }
 
@@ -150,7 +164,7 @@ namespace Hiba.Controllers
 
         public IActionResult Course(int id)
         {
-            var data = _context.TrainingProgram.SingleOrDefault(tp => tp.ID == id);
+            var data = _context.TrainingProgram.SingleOrDefault(tp => tp.ID == id && tp.Lang == cultureInfo.ToString());
             return View("~/Views/Service/Training/Course.cshtml",data);
         }
         public IActionResult Training()
@@ -168,25 +182,26 @@ namespace Hiba.Controllers
                 ViewBag.TrainingPrograms = "البرامج التدريبية";
                 ViewBag.CurrentTrainingCourses = "الدورات الحالية";
             }
-            return View("~/Views/Service/Training/Index.cshtml");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Training" && p.Lang == cultureInfo.ToString());
+            return View("~/Views/Service/Training/Index.cshtml",data);
         }
 
 
         public IActionResult YouthProblems()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Youth Problems");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Youth Problems" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/YouthProblems.cshtml",data);
         }
 
         public IActionResult CareerProblem()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Career Problem");
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Career Problem" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/CareerProblem.cshtml",data);
         }
 
         public IActionResult LecturesWorkshops()
         {
-            var data = _context.LectureWorkshops.ToList();
+            var data = _context.LectureWorkshops.Where(lw => lw.Lang== cultureInfo.ToString()).ToList();
             return View("~/Views/Service/LecturesWorkshops/Index.cshtml",data);
         }
 

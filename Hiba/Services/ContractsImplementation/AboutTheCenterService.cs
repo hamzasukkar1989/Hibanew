@@ -24,7 +24,7 @@ namespace Hiba.Services.ContractsImplementation
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
-            var page = await _context.Pages?.Where(p => p.Name == "AboutCenter" && p.Lang == cultureInfo.ToString()).FirstOrDefaultAsync();
+            var page = await _context.Pages?.Where(p => p.Name == "AboutTheCenter" && p.Lang == cultureInfo.ToString()).FirstOrDefaultAsync();
 
             return page;
         }
