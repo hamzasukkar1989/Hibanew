@@ -26,7 +26,7 @@ namespace Hiba.ViewComponents
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "نبذة عن ";
-                ViewBag.Title2 = "المركز";
+                ViewBag.Title2 = "المركز";               
             }
             var aboutthecenter = await _aboutTheCenter.AboutTheCenter();
             return View(aboutthecenter);
