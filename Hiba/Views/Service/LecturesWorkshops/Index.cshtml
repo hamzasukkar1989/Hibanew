@@ -136,10 +136,34 @@
         </div>
     </div>
     <!-- end section -->
-
-
-
-
+    <!-- section -->
+    <div class="section margin-top_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 layout_padding_2">
+                    <div class="full">
+                        <div class="heading_main text_align_left">
+                            <h2><span>@ViewBag.Title1</span> @ViewBag.Title2</h2>
+                        </div>
+                        <div class="full">
+                            <p>
+                                @Html.Raw(ViewBag.Text)
+                            </p>
+                        </div>
+                        @*<div class="full">
+                                <a class="hvr-radial-out button-theme" href="#">About more</a>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="full">
+                        <img src="@ViewBag.Image" alt="#" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section -->
     <!-- section -->
     <div class="section layout_padding">
         <div class="container">
@@ -147,11 +171,11 @@
                 <div class="col-md-12">
                     <div class="full">
                         <div class="heading_main text_align_center">
-                            <h2><span>@Localizer["H3"] </span>@Localizer["H4"]</h2>
+                            <h2><span>@ViewBag.Tile1 </span>@ViewBag.Tile2 </h2>
                         </div>
                     </div>
                 </div>
-                @if (Model!=null)
+                @if (Model != null)
                 {
                     @foreach (var course in Model)
                     {
