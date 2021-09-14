@@ -91,17 +91,32 @@ namespace Hiba.Controllers
         public IActionResult RaisingChildrenConsultations()
         {
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Raising Children Consultations" && p.Lang == cultureInfo.ToString());
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/RaisingChildrenConsultations.cshtml",data);
         }
 
         public IActionResult MaritalConsultations()
         {
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Marital Consultations" && p.Lang == cultureInfo.ToString());
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/MaritalConsultations.cshtml",data);
         }
         public IActionResult AdolescentCounseling()
         {
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Adolescent Counseling" && p.Lang == cultureInfo.ToString());
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/AdolescentCounseling.cshtml",data);
         }
 
@@ -170,6 +185,11 @@ namespace Hiba.Controllers
         public IActionResult Course(int id)
         {
             var data = _context.TrainingProgram.SingleOrDefault(tp => tp.ID == id && tp.Lang == cultureInfo.ToString());
+            ViewBag.RegisterCourse = "Register A Course";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.RegisterCourse = "تسجيل دورة";
+            }
             return View("~/Views/Service/Training/Course.cshtml",data);
         }
         public IActionResult Training()
