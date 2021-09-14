@@ -7,16 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hiba.Data;
 using Hiba.Models;
+using Hiba.Helper;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace Hiba.Controllers
 {
     public class CoachingsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IUploadFile _upload;
+        readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CoachingsController(ApplicationDbContext context)
+        public CoachingsController(ApplicationDbContext context, IUploadFile upload, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _upload = upload;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Coachings
@@ -54,10 +61,15 @@ namespace Hiba.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Text,Image,Lang")] Coaching coaching)
+        public async Task<IActionResult> Create(Coaching coaching, IFormFile img)
         {
             if (ModelState.IsValid)
             {
+                if (img != null && img.Length > 0)
+                {
+                    string imagepath = await _upload.UploadFile(img, "News");
+                    coaching.Image = imagepath;
+                }
                 _context.Add(coaching);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
