@@ -234,6 +234,12 @@ namespace Hiba.Controllers
             var data = _context.LectureWorkshops.Where(lw => lw.Lang== cultureInfo.ToString()).ToList();
             return View("~/Views/Service/LecturesWorkshops/Index.cshtml",data);
         }
-
+        public IActionResult LectureWorkshop(int id)
+        {
+            var data = _context.LectureWorkshops.SingleOrDefault(lw => lw.ID==id && lw.Lang == cultureInfo.ToString());
+            return View("~/Views/Service/LecturesWorkshops/LectureWorkshop.cshtml", data);
+        }
+        
     }
+    
 }

@@ -182,7 +182,7 @@
                         <div class="col-md-4">
                             <div class="full blog_img_popular">
                                 <img class="img-responsive" src="@course.Image" alt="#" />
-                                <h4>@course.Name</h4>
+                                <h4><a asp-controller="Service" asp-action="LectureWorkshop" asp-route-id="@course.ID">@course.Name</a></h4>
                             </div>
                         </div>
                     }
