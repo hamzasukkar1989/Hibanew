@@ -158,7 +158,7 @@
                         <div class="col-md-4">
                             <div class="full blog_img_popular">
                                 <img class="img-responsive" src="@course.Image" alt="#" />
-                                <h4>@course.Name</h4>
+                                <a asp-action="LectureWorkshop" asp-controller="Service" asp-route-id="@course.ID"><h4>@course.Name</h4></a>
                             </div>
                         </div>
                     }
