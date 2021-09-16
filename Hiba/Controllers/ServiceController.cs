@@ -232,6 +232,11 @@ namespace Hiba.Controllers
 
         public IActionResult LecturesWorkshops()
         {
+            var pagedata = _context.Pages.SingleOrDefault(p => p.Name == "Lectures Workshops" && p.Lang == cultureInfo.ToString());
+            ViewBag.Title1 = pagedata.Title1;
+            ViewBag.Title2 = pagedata.Title2;
+            ViewBag.Image = pagedata.Image;
+            ViewBag.Text = pagedata.Text;
             var data = _context.LectureWorkshops.Where(lw => lw.Lang== cultureInfo.ToString()).ToList();
             return View("~/Views/Service/LecturesWorkshops/Index.cshtml",data);
         }
