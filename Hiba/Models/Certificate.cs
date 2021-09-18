@@ -10,5 +10,8 @@ namespace Hiba.Models
         public int ID { get; set; }
         public string Code { get; set; }
         public string Image { get; set; }
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string Course { get; set; }
     }
 }
