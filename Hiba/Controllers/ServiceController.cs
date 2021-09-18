@@ -25,9 +25,20 @@ namespace Hiba.Controllers
 
         public IActionResult Coaching()
         {
-            var data = _context.Pages.SingleOrDefault(p => p.Name == "Coaching" && p.Lang == cultureInfo.ToString());
+            var pagedata = _context.Pages.SingleOrDefault(p => p.Name == "Coaching" && p.Lang == cultureInfo.ToString());
+            ViewBag.Title1 = pagedata.Title1;
+            ViewBag.Title2 = pagedata.Title2;
+            ViewBag.Image = pagedata.Image;
+            ViewBag.Text = pagedata.Text;
+            var data = _context.Coaching.Where(c => c.Lang == cultureInfo.ToString()).ToList();
             return View("~/Views/Service/Coaching/Index.cshtml",data);
         }
+        public IActionResult Coach(int id)
+        {
+            var data = _context.Coaching.SingleOrDefault(c => c.ID == id && c.Lang == cultureInfo.ToString());
+            return View("~/Views/Service/Coaching/Coach.cshtml", data);
+        }
+
         public IActionResult NutritionAndHealthConsultations()
         {
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations" && p.Lang == cultureInfo.ToString());
@@ -221,6 +232,11 @@ namespace Hiba.Controllers
 
         public IActionResult LecturesWorkshops()
         {
+            var pagedata = _context.Pages.SingleOrDefault(p => p.Name == "Lectures Workshops" && p.Lang == cultureInfo.ToString());
+            ViewBag.Title1 = pagedata.Title1;
+            ViewBag.Title2 = pagedata.Title2;
+            ViewBag.Image = pagedata.Image;
+            ViewBag.Text = pagedata.Text;
             var data = _context.LectureWorkshops.Where(lw => lw.Lang== cultureInfo.ToString()).ToList();
             return View("~/Views/Service/LecturesWorkshops/Index.cshtml",data);
         }
