@@ -25,27 +25,28 @@
 </head>
 
     <body >
-        <div style="padding-top:200px">
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Code)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Code)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-                <dt class="col-sm-2">
-
-                </dt>
-                <dd class="col-sm-10">
-                    <img src="@Model.Image" />
-                </dd>
-            </dl>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Code)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Course)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Date)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@Model.Code</td>
+                    <td>@Model.Name</td>
+                    <td>@Model.Course</td>
+                    <td>@Model.Date</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <img src="@Model.Image" />
         </div>
     </body>
 </html>
