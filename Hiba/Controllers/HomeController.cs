@@ -83,8 +83,11 @@ namespace Hiba.Controllers
             return View();
         }
 
-       
 
+        public IActionResult ContactList()
+        {
+            return View( _context.Contacts.ToList());
+        }
         public IActionResult CMS()
         {
             return View();
@@ -133,6 +136,18 @@ namespace Hiba.Controllers
             string webRootPath = _env.WebRootPath;
             try
             {
+                Contact contact = new Contact();
+                contact.Name = name;
+                contact.Email = email;
+                contact.Phone = Int32.Parse(phone);
+                contact.Age = Int32.Parse(age);
+                contact.Country = country;
+                contact.Education = education;
+                contact.Work = work;
+                contact.Message = massage;
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+
                 var Email = new MimeMessage();
                 Email.From.Add(MailboxAddress.Parse("hamzasukkarforprogramming@gmail.com"));
                 Email.To.Add(MailboxAddress.Parse(email));
@@ -145,6 +160,7 @@ namespace Hiba.Controllers
                 smtp.Send(Email);
                 smtp.Disconnect(true);
 
+              
             }
             catch (Exception ex)
             {

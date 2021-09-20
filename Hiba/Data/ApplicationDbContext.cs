@@ -25,5 +25,6 @@ namespace Hiba.Data
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Media> Medias { get; set; }
         public DbSet<Hiba.Models.Coaching> Coaching { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }
