@@ -129,21 +129,21 @@
                 <div class="col-md-12">
                     <div class="full">
                         <div class="heading_main text_align_center">
-                            <h2><span>@Localizer["H3"] </span>@Localizer["H4"]</h2>
+                            <h2><span>@ViewBag.Title1 </span>@ViewBag.Title2</h2>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="full blog_img_popular">
-                        <img class="img-responsive" src="~/images/p1.png" alt="#" />
-                        <h4><a asp-controller="Service" asp-action="YouthProblems">Youth Problems</a></h4>
+                        <img class="img-responsive" src="~/images/Youth Problems.jpg" alt="#" />
+                        <h4><a asp-controller="Service" asp-action="YouthProblems">@ViewBag.YouthProblems</a></h4>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="full blog_img_popular">
-                        <img class="img-responsive" src="~/images/p1.png" alt="#" />
-                        <h4><a asp-controller="Service" asp-action="CareerProblem">Career Problem</a></h4>
+                        <img class="img-responsive" src="~/images/Career Problem.jpg" alt="#" />
+                        <h4><a asp-controller="Service" asp-action="CareerProblem">@ViewBag.CareerProblem</a></h4>
                     </div>
                 </div>
             </div>

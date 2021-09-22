@@ -149,8 +149,19 @@ namespace Hiba.Controllers
 
         public IActionResult SelfImprovementConsultations()
         {
-           
-            return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/Index.cshtml");
+
+            ViewBag.Title1 = "Self And Improvement";
+            ViewBag.Title2 = "Consultations";
+            ViewBag.YouthProblems = "Youth Problems";
+            ViewBag.CareerProblem = "Career Problem";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.Title1 = " تنمية وتطوير ";
+                ViewBag.Title2 = "ذاتي";
+                ViewBag.YouthProblems = "مشكلات الشباب";
+                ViewBag.CareerProblem = "استشارات مهنية";
+            }
+                return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/Index.cshtml");
         }
 
         public IActionResult OnlineCourses()
