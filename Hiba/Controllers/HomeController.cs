@@ -49,6 +49,10 @@ namespace Hiba.Controllers
                  new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
             return Redirect(Request.Headers["Referer"].ToString());
         }
+        public IActionResult GetHeader()
+        {
+            return ViewComponent("Header");
+        }
         public IActionResult Index()
         {
 
