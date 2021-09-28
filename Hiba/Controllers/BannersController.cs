@@ -10,6 +10,8 @@ using Hiba.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Hiba.Helper;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -18,6 +20,8 @@ namespace Hiba.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
         readonly IWebHostEnvironment _webHostEnvironment;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public BannersController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IUploadFile upload)
         {
@@ -29,7 +33,8 @@ namespace Hiba.Controllers
         // GET: Banners
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Banners.ToListAsync());
+            var data = await _context.Banners.Where(b=>b.Lang==cultureInfo.ToString()).ToListAsync();
+            return View(data);
         }
 
         // GET: Banners/Details/5
@@ -114,6 +119,24 @@ namespace Hiba.Controllers
                     {
                         string imagepath = await _upload.UploadFile(img, "Banner");
                         banner.Image = imagepath;
+                    }
+                    if (banner.First==true)
+                    {
+                        var banners = _context.Banners.Where(b => b.ID != id).ToList();
+
+                        foreach (var _banner in banners)
+                        {
+                            _banner.First = false;
+                        }
+                    }
+                    if (banner.Secound == true)
+                    {
+                        var banners = _context.Banners.Where(b=> b.ID!=id).ToList();
+
+                        foreach (var _banner in banners)
+                        {
+                            _banner.Secound = false;
+                        }
                     }
                     _context.Update(banner);
                     await _context.SaveChangesAsync();

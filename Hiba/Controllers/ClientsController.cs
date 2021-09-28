@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -16,7 +18,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
-
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
         public ClientsController(ApplicationDbContext context, IUploadFile upload)
         {
             _context = context;
@@ -36,7 +39,13 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> Clients()
         {
-            return View(await _context.Clients.ToListAsync());
+            ViewBag.Title1 = "Our clients";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.Title1 = "عملاؤنا";
+            }
+            var clients = await _context.Clients.Where(c=>c.Lang== cultureInfo.ToString()).ToListAsync();
+            return View(clients);
         }
 
         // GET: Clients/Details/5

@@ -12,5 +12,8 @@ namespace Hiba.Models
         public string Title2 { get; set; }
         public string Title3 { get; set; }
         public string Image { get; set; }
+        public bool First { get; set; }
+        public bool Secound { get; set; }
+        public string Lang { get; set; }
     }
 }

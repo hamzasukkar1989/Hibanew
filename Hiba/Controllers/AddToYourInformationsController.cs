@@ -10,6 +10,8 @@ using Hiba.Models;
 using Hiba.Helper;
 using Microsoft.AspNetCore.Http;
 using Hiba.Common;
+using System.Threading;
+using System.Globalization;
 
 namespace Hiba.Controllers
 {
@@ -17,6 +19,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public AddToYourInformationsController(ApplicationDbContext context, IUploadFile upload)
         {
@@ -61,23 +65,45 @@ namespace Hiba.Controllers
         }
         public IActionResult AddToYourInformations()
         {
+            ViewBag.Articles = "Articles";
+            ViewBag.StudiesAndResearch = "Studies And Research";
+            ViewBag.TranslatedArticles = "Translated articles";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.Articles = "مقالات";
+                ViewBag.StudiesAndResearch ="بحوث ودراسات";
+                ViewBag.TranslatedArticles = "مواضيع مترجمة";
+            }
             return View();
         }
         public IActionResult StudiesAndResearch()
         {
-            var data = _context.AddToYourInformation.Where(ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.StudiesAndResearch).ToList();
+            var data = _context.AddToYourInformation.Where
+                (
+                    ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.StudiesAndResearch 
+                    && ai.Lang== cultureInfo.ToString()
+                ).ToList();
             return View(data);
         }
 
         public IActionResult TranslatedArticles()
         {
-            var data = _context.AddToYourInformation.Where(ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.TranslatedArticles).ToList();
+            var data = _context.AddToYourInformation.Where
+                (
+                    ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.TranslatedArticles
+                    && ai.Lang == cultureInfo.ToString()
+                 ).ToList();
             return View(data);
         }
 
         public IActionResult Articles()
         {
-            var data = _context.AddToYourInformation.Where(ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.Articles).ToList();
+            var data = _context.AddToYourInformation.Where
+                (
+                     ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.Articles
+                     && ai.Lang == cultureInfo.ToString()
+                ).ToList();
             return View(data);
         }
         // POST: AddToYourInformations/Create

@@ -23,9 +23,11 @@ namespace Hiba.ViewComponents
         {
             var _consultationrequest = await _consultationRequest.ConsultationRequest();
             ViewBag.ConsultationRequest = "Consultation Request";
+            ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.align = "right";
             }          
             return View(_consultationrequest);
         }

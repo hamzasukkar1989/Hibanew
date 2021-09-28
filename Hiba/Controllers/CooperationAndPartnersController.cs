@@ -51,11 +51,8 @@ namespace Hiba.Controllers
                 ViewBag.Organizations = "هيئات ومؤسسات";
             }
 
-
-
-
-            
-            return View();
+            var data = _context.Pages.SingleOrDefault(p => p.Name == "Cooperation And Partners" && p.Lang == cultureInfo.ToString());
+            return View(data);
         }
         public IActionResult Individual()
         {

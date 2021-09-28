@@ -16,7 +16,7 @@ namespace Hiba.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.8")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Hiba.Models.AddToYourInformation", b =>
@@ -30,6 +30,9 @@ namespace Hiba.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lang")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -50,8 +53,17 @@ namespace Hiba.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("First")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lang")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Secound")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title1")
                         .HasColumnType("nvarchar(max)");
@@ -102,6 +114,9 @@ namespace Hiba.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lang")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -156,12 +171,15 @@ namespace Hiba.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Phone")
@@ -181,6 +199,9 @@ namespace Hiba.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CV")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CooperationAndPartnersType")
                         .HasColumnType("int");
@@ -207,6 +228,9 @@ namespace Hiba.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lang")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -276,6 +300,9 @@ namespace Hiba.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lang")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

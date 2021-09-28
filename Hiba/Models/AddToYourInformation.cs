@@ -13,5 +13,6 @@ namespace Hiba.Models
         public string Text { get; set; }
         public string Image { get; set; }
         public AddToYourInformationType AddToYourInformationType { get; set; }
+        public string Lang { get; set; }
     }
 }

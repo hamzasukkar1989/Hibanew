@@ -14,9 +14,15 @@ namespace Hiba.Controllers
         private readonly ApplicationDbContext _context;
         CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
         CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+        
         public ServiceController(ApplicationDbContext context)
         {
             _context = context;
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
         }
         public IActionResult Index()
         {            
@@ -41,21 +47,41 @@ namespace Hiba.Controllers
 
         public IActionResult NutritionAndHealthConsultations()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/NutritionAndHealthConsultations/Index.cshtml",data);
         }
         public IActionResult FinancialConsults()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Financial Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/FinancialConsults.cshtml", data);
         }
         public IActionResult EconomicConsults()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Economic Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/EconomicConsults.cshtml",data);
         }
         public IActionResult ManagementConsults()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Management Consults" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/EconomicConsultations/ManagementConsults.cshtml", data);
         }
@@ -128,6 +154,11 @@ namespace Hiba.Controllers
 
         public IActionResult PsychologicalCounseling()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Psychological Counseling"&& p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/PsychologicalCounseling/Index.cshtml",data);
         }
@@ -189,6 +220,7 @@ namespace Hiba.Controllers
         {
             ViewBag.Title1 = "Training";
             ViewBag.Title2 = "Programs";
+           
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "الدورات";
@@ -216,6 +248,7 @@ namespace Hiba.Controllers
             ViewBag.OnlineCourses = "Online Courses";
             ViewBag.TrainingPrograms = "Training Programs";
             ViewBag.CurrentTrainingCourses = "Current Training Courses";
+            ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "البرامج";
@@ -223,6 +256,7 @@ namespace Hiba.Controllers
                 ViewBag.OnlineCourses = "الدورات النشطة";
                 ViewBag.TrainingPrograms = "البرامج التدريبية";
                 ViewBag.CurrentTrainingCourses = "الدورات الحالية";
+                ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Training" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/Training/Index.cshtml",data);
@@ -231,12 +265,22 @@ namespace Hiba.Controllers
 
         public IActionResult YouthProblems()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Youth Problems" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/YouthProblems.cshtml",data);
         }
 
         public IActionResult CareerProblem()
         {
+            ViewBag.ConsultationRequest = "Consultation Request";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.ConsultationRequest = "طلب أستشارة";
+            }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Career Problem" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/SocialAndImprovementConsultations/SelfImprovementConsultations/CareerProblem.cshtml",data);
         }

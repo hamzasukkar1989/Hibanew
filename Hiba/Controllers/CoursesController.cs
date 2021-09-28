@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hiba.Data;
 using Hiba.Models;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public CoursesController(ApplicationDbContext context)
         {
@@ -27,7 +31,8 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> Courses()
         {
-            return View(await _context.Courses.ToListAsync());
+            var data = await _context.Courses.Where(p => p.Lang == cultureInfo.ToString()).ToListAsync();
+            return View(data);
         }
 
         // GET: Courses/Details/5

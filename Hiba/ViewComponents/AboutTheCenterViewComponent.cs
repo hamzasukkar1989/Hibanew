@@ -23,10 +23,12 @@ namespace Hiba.ViewComponents
         {
             ViewBag.Title1 = "About the ";
             ViewBag.Title2 = "Center";
+            ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "نبذة عن ";
-                ViewBag.Title2 = "المركز";               
+                ViewBag.Title2 = "المركز";
+                ViewBag.align = "right";
             }
             var aboutthecenter = await _aboutTheCenter.AboutTheCenter();
             return View(aboutthecenter);

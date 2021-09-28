@@ -70,6 +70,7 @@ namespace Hiba
             services.AddTransient<IUploadFile, UploadFile>();
             services.AddTransient<IConsultationRequest, ConsultationRequestService>();
             services.AddTransient<IAddToYourInformation, AddToYourInformationService>();
+            services.AddTransient<IHeader, HeaderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

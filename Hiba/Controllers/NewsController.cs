@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -19,6 +21,8 @@ namespace Hiba.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
         readonly IWebHostEnvironment _webHostEnvironment;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
 
         public NewsController(ApplicationDbContext context, IUploadFile upload, IWebHostEnvironment webHostEnvironment)
@@ -37,7 +41,8 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> List()
         {
-            return View(await _context.News.ToListAsync());
+            var news = await _context.News.Where(n => n.Lang == cultureInfo.ToString()).ToListAsync();
+            return View(news);
         }
 
         // GET: News
