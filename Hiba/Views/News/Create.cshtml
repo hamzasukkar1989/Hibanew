@@ -45,5 +45,7 @@
 <script>
     // Replace the <textarea id="editor1"> with a CKEditor 4
     // instance, using default configuration.
-    CKEDITOR.replace('text');
+    CKEDITOR.replace('text', {
+            customConfig: '/js/CustomConfig.js'
+        });
 </script>

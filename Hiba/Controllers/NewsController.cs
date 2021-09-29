@@ -13,13 +13,15 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System.Globalization;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Hiba.Controllers
 {
+    
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IUploadFile _upload;
+        private readonly IUploadFile _myupload;
         readonly IWebHostEnvironment _webHostEnvironment;
         CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
         CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
@@ -28,11 +30,33 @@ namespace Hiba.Controllers
         public NewsController(ApplicationDbContext context, IUploadFile upload, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
-            _upload = upload;
+            _myupload = upload;
             _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: News
+        [HttpPost]
+        public async Task<ActionResult> UploadImageAsync(IFormFile upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            string imagepath = "";
+            string filename = upload.FileName;
+
+
+            if (upload != null && upload.Length > 0)
+            {
+                 imagepath = await _myupload.UploadFile(upload, "News");
+            }
+
+            
+            //var url = $"{"/images/CKEditorImages/"}{fileName}";
+            var url = imagepath;
+            var successMessage = "image is uploaded successfully";
+            dynamic success = JsonConvert.DeserializeObject("{ 'uploaded': 1,'fileName': \"" + filename + "\",'url': \"" + url + "\", 'error': { 'message': \"" + successMessage + "\"}}");
+            return Json(success);
+
+            
+        }
+ 
         public async Task<IActionResult> News(int id)
         {
             var data = await _context.News.SingleOrDefaultAsync(N => N.ID == id);
@@ -92,7 +116,7 @@ namespace Hiba.Controllers
 
                 if (img != null && img.Length > 0)
                 {
-                    string imagepath = await _upload.UploadFile(img, "News");
+                    string imagepath = await _myupload.UploadFile(img, "News");
                     news.Image = imagepath;
                 }
                 _context.Add(news);
@@ -136,7 +160,7 @@ namespace Hiba.Controllers
                 {
                     if (img != null && img.Length > 0)
                     {
-                        string imagepath = await _upload.UploadFile(img, "News");
+                        string imagepath = await _myupload.UploadFile(img, "News");
                         news.Image = imagepath;
                     }
                     _context.Add(news);
