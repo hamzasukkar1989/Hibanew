@@ -42,6 +42,7 @@ namespace Hiba.Controllers
             ViewBag.Title2 = "AndPartners";
             ViewBag.Individual = "Individual";
             ViewBag.Organizations = "Organizations";
+            ViewBag.align = "left";
 
             if (cultureInfo.ToString() == "ar")
             {
@@ -49,6 +50,7 @@ namespace Hiba.Controllers
                 ViewBag.Title2 = "شركاء";
                 ViewBag.Individual = "أفراد";
                 ViewBag.Organizations = "هيئات ومؤسسات";
+                ViewBag.align = "right";
             }
 
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Cooperation And Partners" && p.Lang == cultureInfo.ToString());

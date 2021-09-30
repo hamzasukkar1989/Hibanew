@@ -50,15 +50,27 @@ namespace Hiba.Controllers
             
             //var url = $"{"/images/CKEditorImages/"}{fileName}";
             var url = imagepath;
-            var successMessage = "image is uploaded successfully";
-            dynamic success = JsonConvert.DeserializeObject("{ 'uploaded': 1,'fileName': \"" + filename + "\",'url': \"" + url + "\", 'error': { 'message': \"" + successMessage + "\"}}");
-            return Json(success);
+            string callback = Request.Query["CKEditorFuncNum"];//Request return value
+            //var successMessage = "image is uploaded successfully";
+            //dynamic success = JsonConvert.DeserializeObject("{ 'uploaded': 1,'fileName': \"" + filename + "\",'url': \"" + url + "\", 'error': { 'message': \"" + successMessage + "\"}}");
+            //return Json(success);
 
-            
+            //string tpl = "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(\"{1}\", \"{0}\", \"{2}\");</script>";
+            //return Content(string.Format(tpl, url, callback, ""), "text/html");
+
+           
+            return Content("<script type ='text/javascript' > window.parent.CKEDITOR.tools.callFunction("+1+", '" + Url+"', '');</ script > ");
+
+
         }
  
         public async Task<IActionResult> News(int id)
         {
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
             var data = await _context.News.SingleOrDefaultAsync(N => N.ID == id);
             return View(data);
         }

@@ -103,6 +103,11 @@ namespace Hiba.Controllers
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             ViewBag.lang = cultureInfo.ToString();
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
             var data = _context.Pages.Where(p => p.Name == "WhoAreWe" && p.Lang == cultureInfo.ToString()).FirstOrDefault();
             return View(data);
         }
@@ -111,6 +116,11 @@ namespace Hiba.Controllers
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             ViewBag.lang = cultureInfo.ToString();
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
             var data = _context.Pages.Where(p => p.Name == "AboutTheCenter" && p.Lang== cultureInfo.ToString()).FirstOrDefault();
             return View(data);
         }
@@ -124,6 +134,11 @@ namespace Hiba.Controllers
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             ViewBag.lang = cultureInfo.ToString();
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
             var data = _context.Pages.Where(p => p.Name == "Vision" && p.Lang == cultureInfo.ToString()).FirstOrDefault();
             return View(data);
         }

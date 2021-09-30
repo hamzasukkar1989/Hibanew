@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Hiba.Helper;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -16,6 +18,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public MediaController(ApplicationDbContext context, IUploadFile upload)
         {
@@ -30,6 +34,11 @@ namespace Hiba.Controllers
         public async Task<IActionResult> Media(int id)
         {
             var data = await _context.Medias.SingleOrDefaultAsync(m=>m.ID==id);
+            ViewBag.align = "left";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "right";
+            }
             return View(data);
         }
         // GET: Media
