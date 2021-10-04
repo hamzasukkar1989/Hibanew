@@ -55,12 +55,15 @@ namespace Hiba.Controllers
         // GET: AddToYourInformations/Create
         public IActionResult Create()
         {
+            ViewData["Related"] = new SelectList(_context.AddToYourInformation, "ID", "Name");
             return View();
         }
 
         public IActionResult Page(int id)
         {
-            var data = _context.AddToYourInformation.SingleOrDefault(ai => ai.ID==id);
+            var data = _context.AddToYourInformation
+                .Include(ai =>ai.Related)
+                .SingleOrDefault(ai => ai.ID==id);
             return View(data);
         }
         public IActionResult AddToYourInformations()
@@ -111,7 +114,7 @@ namespace Hiba.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AddToYourInformation addToYourInformation, IFormFile img)
+        public async Task<IActionResult> Create(AddToYourInformation addToYourInformation, IFormFile img, int[] related)
         {
             if (ModelState.IsValid)
             {
@@ -119,6 +122,14 @@ namespace Hiba.Controllers
                 {
                     string imagepath = await _upload.UploadFile(img, "CooperationAndPartners");
                     addToYourInformation.Image = imagepath;
+                }
+                if (related.Length > 0)
+                {
+                    for (int i = 0; i < related.Length; i++)
+                    {
+                        var relate = _context.AddToYourInformation.Find(related[i]);
+                        addToYourInformation.Related.Add(relate);
+                    }
                 }
                 _context.Add(addToYourInformation);
                 await _context.SaveChangesAsync();

@@ -79,23 +79,17 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="contact_form">
-                        <form asp-action="Email" asp-controller="Home">
+                        <form id="emailForm" asp-action="Email" asp-controller="Home">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <fieldset>
                                 <div class="full field">
-                                    <label asp-for="Name" class="control-label"></label>
-                                    <input type="text" asp-for="Name" placeholder="Your Name" class="form-control" />
-                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <input type="text" name="name" placeholder="Your Name" required class="form-control" />
                                 </div>
                                 <div class="full field">
-                                    <label asp-for="Email" class="control-label"></label>
-                                    <input type="email" asp-for="Email" placeholder="Email Address" class="form-control" />
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <input type="email" name="email" placeholder="Email Address" required class="form-control" />
                                 </div>
                                 <div class="full field">
-                                    <label asp-for="Phone" class="control-label"></label>
-                                    <input type="tel" asp-for="Phone" placeholder="Phone Number" class="form-control" />
-                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number:00963123456789" required class="form-control" />
                                 </div>
                                 <div class="full field">
                                     <input type="text" placeholder="Age" name="age" />
@@ -147,11 +141,32 @@
     <script src="js/jquery.pogo-slider.min.js"></script>
     <script src="js/slider-index.js"></script>
     <script src="js/smoothscroll.js"></script>
-    <script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
+    @*<script src="js/form-validator.min.js"></script>*@
+    @*<script src="js/contact-form-script.js"></script>*@
     <script src="js/isotope.min.js"></script>
-    <script src="js/~/images-loded.min.js"></script>
+    <script src="js/images-loded.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    @*<script>
+            $("#emailForm").validate();
+        </script>*@
+    <script>
+        // just for the demos, avoids form submit
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+        });
+        $("#emailForm").validate({
+            rules: {
+                phone: {
+                    required: true,
+                    digits: true
+                }
+            }
+        });
+    </script>
     <script>
         /* counter js */
 

@@ -337,9 +337,13 @@ namespace Hiba.Controllers
         public IActionResult LectureWorkshop(int id)
         {
             ViewBag.align = "left";
+            ViewBag.Title1 = "Lectures and";
+            ViewBag.Title2 = "workshops";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.align = "right";
+                ViewBag.Title1 = "محاضرات";
+                ViewBag.Title2 = "وورشات عمل";
             }
             var data = _context.LectureWorkshops.SingleOrDefault(lw =>lw.ID==id && lw.Lang == cultureInfo.ToString());
             return View("~/Views/Service/LecturesWorkshops/LectureWorkshop.cshtml", data);

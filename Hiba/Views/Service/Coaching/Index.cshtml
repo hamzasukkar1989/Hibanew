@@ -1,27 +1,12 @@
 ﻿@model IEnumerable<Hiba.Models.Coaching>
-
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Courses";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout_ar.cshtml";
-    @*@if (@ViewBag.lang=="ar")
-        {
-            Layout = "~/Views/Shared/_Layout_ar.cshtml";
-        }
-        else
-        {
-            Layout = "~/Views/Shared/_Layout.cshtml";
-        }*@
-
-}
-@using Microsoft.Extensions.Localization
-@using Microsoft.AspNetCore.Mvc.Localization
-
-@inject IViewLocalizer Localizer
 
 
 <!DOCTYPE html>
@@ -72,7 +57,7 @@
     <!-- END LOADER -->
     <!-- Start header -->
     <!-- End header -->
- @await Component.InvokeAsync("Header")
+    @await Component.InvokeAsync("Header")
     <!-- section -->
     <div class="section margin-top_50">
         <div class="container">
@@ -245,17 +230,3 @@
 </body>
 
 </html>
-
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

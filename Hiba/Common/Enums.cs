@@ -8,10 +8,9 @@ namespace Hiba.Common
     public class Enums
     {
         public enum CooperationAndPartnersType { OrganizationsAndInstitutions, Individual}
-
         public enum TrainingType { TrainingPrograms, CurrentCourses , OnlineCourses }
-
         public enum AddToYourInformationType { Articles, StudiesAndResearch, TranslatedArticles }
+        public enum Sequence { First, Secound, Third, Fourth }
 
     }
 }

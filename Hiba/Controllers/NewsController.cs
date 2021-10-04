@@ -51,15 +51,16 @@ namespace Hiba.Controllers
             //var url = $"{"/images/CKEditorImages/"}{fileName}";
             var url = imagepath;
             string callback = Request.Query["CKEditorFuncNum"];//Request return value
-            //var successMessage = "image is uploaded successfully";
-            //dynamic success = JsonConvert.DeserializeObject("{ 'uploaded': 1,'fileName': \"" + filename + "\",'url': \"" + url + "\", 'error': { 'message': \"" + successMessage + "\"}}");
-            //return Json(success);
+                                                               //var successMessage = "image is uploaded successfully";
+                                                               //dynamic success = JsonConvert.DeserializeObject("{ 'uploaded': 1,'fileName': \"" + filename + "\",'url': \"" + url + "\", 'error': { 'message': \"" + successMessage + "\"}}");
+                                                               //return Json(success);
 
             //string tpl = "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(\"{1}\", \"{0}\", \"{2}\");</script>";
             //return Content(string.Format(tpl, url, callback, ""), "text/html");
 
-           
-            return Content("<script type ='text/javascript' > window.parent.CKEDITOR.tools.callFunction("+1+", '" + Url+"', '');</ script > ");
+
+            // return Content("<script type ='text/javascript' > window.parent.CKEDITOR.tools.callFunction("+1+", '" + Url+"', '');</ script > ");
+            return Content(url);
 
 
         }

@@ -1,5 +1,5 @@
 ﻿@model Hiba.Models.News
-
+@using static Hiba.Common.Enums
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -12,7 +12,7 @@
 <h4>News</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="text" class="control-label"></label>
-                <textarea name="text" id="text" rows="10" cols="80">
+                <textarea name="text" id="text" rows="100" cols="80">
                 This is my textarea to be replaced with CKEditor 4.
             </textarea>
             </div>
@@ -34,6 +34,39 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+            <div class="form-group col-md-6">
+                <select asp-for="Sequence" asp-items="@Html.GetEnumSelectList<Sequence>()" class="form-control" required="required">
+                    <option value="null">Select Message Type</option>
+                </select>
+            </div>
+            @*<div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Secound" /> @Html.DisplayNameFor(model => model.Secound)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Third" /> @Html.DisplayNameFor(model => model.Third)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Fourth" /> @Html.DisplayNameFor(model => model.Fourth)
+                    </label>
+                </div>*@
+            @*<div>
+                    <div>
+                        <div>@Html.RadioButtonFor(model => model.First, "First")   Firt</div>
+                        <div>@Html.RadioButtonFor(model => model.First, "Secound") Secound</div>
+                        <div>@Html.RadioButtonFor(model => model.First, "Third")   Third</div>
+                        <div>@Html.RadioButtonFor(model => model.First, "Fourth")  Fourth</div>
+                    </div>
+                </div>*@
         </form>
     </div>
 </div>
@@ -46,6 +79,6 @@
     // Replace the <textarea id="editor1"> with a CKEditor 4
     // instance, using default configuration.
     CKEDITOR.replace('text', {
-            customConfig: '/js/CustomConfig.js'
-        });
+        customConfig: '/js/CustomConfig.js'
+    });
 </script>

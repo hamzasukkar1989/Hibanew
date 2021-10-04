@@ -96,6 +96,10 @@
                 </div>
             </div>
         </div>
+        @foreach (var item in Model.Related)
+        {
+            <span>@item.Name </span>
+        }
     }
 
 </body>

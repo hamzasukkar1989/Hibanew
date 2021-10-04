@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="full">
-                        <h3>About the Center</h3>
+                        <h3>@ViewBag.Title1</h3>
                     </div>
                 </div>
             </div>
@@ -75,16 +75,19 @@
                 <div class="col-md-6 layout_padding_2">
                     <div class="full">
                         <div style="float:@ViewBag.align" class="heading_main text_align_left">
-                            <h2><span>Welcome To</span> Education</h2>
+                            @*<h2><span>Welcome To</span> Education</h2>*@
                         </div>
                         <div class="full">
                             <p>
                                 @Model.Name
                             </p>
+                            <p>
+                                @Html.Raw(@Model.Text)
+                            </p>
                         </div>
-                        <div class="full">
+                        @*<div class="full">
                             <a class="hvr-radial-out button-theme" href="#">About more</a>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div class="col-md-6">

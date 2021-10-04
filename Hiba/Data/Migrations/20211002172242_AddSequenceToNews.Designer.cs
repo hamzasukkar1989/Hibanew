@@ -4,14 +4,16 @@ using Hiba.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hiba.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211002172242_AddSequenceToNews")]
+    partial class AddSequenceToNews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,9 +27,6 @@ namespace Hiba.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AddToYourInformationID")
-                        .HasColumnType("int");
 
                     b.Property<int>("AddToYourInformationType")
                         .HasColumnType("int");
@@ -45,8 +44,6 @@ namespace Hiba.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("AddToYourInformationID");
 
                     b.ToTable("AddToYourInformation");
                 });
@@ -581,13 +578,6 @@ namespace Hiba.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Hiba.Models.AddToYourInformation", b =>
-                {
-                    b.HasOne("Hiba.Models.AddToYourInformation", null)
-                        .WithMany("Related")
-                        .HasForeignKey("AddToYourInformationID");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -637,11 +627,6 @@ namespace Hiba.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Hiba.Models.AddToYourInformation", b =>
-                {
-                    b.Navigation("Related");
                 });
 #pragma warning restore 612, 618
         }

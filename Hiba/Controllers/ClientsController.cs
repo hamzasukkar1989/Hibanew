@@ -30,9 +30,11 @@ namespace Hiba.Controllers
         public async Task<IActionResult> Client(int id)
         {
             ViewBag.align = "left";
+            ViewBag.Title1 = "Our clients";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.align = "right";
+                ViewBag.Title1 = "عملاؤنا";
             }
             var data = await _context.Clients.SingleOrDefaultAsync(c => c.ID == id);
             return View(data);
