@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hiba.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211003180212_AddReleatedToAddToYourInformation")]
-    partial class AddReleatedToAddToYourInformation
+    [Migration("20211005150339_RemovrReleatedToAddToYourInformation")]
+    partial class RemovrReleatedToAddToYourInformation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

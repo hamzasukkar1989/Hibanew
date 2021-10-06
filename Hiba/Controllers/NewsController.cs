@@ -132,7 +132,15 @@ namespace Hiba.Controllers
                     string imagepath = await _myupload.UploadFile(img, "News");
                     news.Image = imagepath;
                 }
+                var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence);
+                if (getnewsSequence!=null)
+                {
+                    getnewsSequence.Sequence = Common.Enums.Sequence.Not;
+                    _context.Update(getnewsSequence);
+                }
+                
                 _context.Add(news);
+                _context.SaveChanges();
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -171,12 +179,17 @@ namespace Hiba.Controllers
             {
                 try
                 {
+                    var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence && n.ID !=news.ID);
+                    if (getnewsSequence != null)
+                    {
+                        getnewsSequence.Sequence = Common.Enums.Sequence.Not;
+                        _context.Update(getnewsSequence);
+                    }
                     if (img != null && img.Length > 0)
                     {
                         string imagepath = await _myupload.UploadFile(img, "News");
                         news.Image = imagepath;
                     }
-                    _context.Add(news);
                     _context.Update(news);
                     await _context.SaveChangesAsync();
                 }

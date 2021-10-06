@@ -14,6 +14,5 @@ namespace Hiba.Models
         public string Image { get; set; }
         public AddToYourInformationType AddToYourInformationType { get; set; }
         public string Lang { get; set; }
-        public List<AddToYourInformation> Related { get; set; }
     }
 }

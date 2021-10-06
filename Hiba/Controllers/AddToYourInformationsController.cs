@@ -62,7 +62,7 @@ namespace Hiba.Controllers
         public IActionResult Page(int id)
         {
             var data = _context.AddToYourInformation
-                .Include(ai =>ai.Related)
+                //.Include(ai =>ai.Related)
                 .SingleOrDefault(ai => ai.ID==id);
             return View(data);
         }
@@ -123,14 +123,14 @@ namespace Hiba.Controllers
                     string imagepath = await _upload.UploadFile(img, "CooperationAndPartners");
                     addToYourInformation.Image = imagepath;
                 }
-                if (related.Length > 0)
-                {
-                    for (int i = 0; i < related.Length; i++)
-                    {
-                        var relate = _context.AddToYourInformation.Find(related[i]);
-                        addToYourInformation.Related.Add(relate);
-                    }
-                }
+                //if (related.Length > 0)
+                //{
+                //    for (int i = 0; i < related.Length; i++)
+                //    {
+                //        var relate = _context.AddToYourInformation.Find(related[i]);
+                //        addToYourInformation.Related.Add(relate);
+                //    }
+                //}
                 _context.Add(addToYourInformation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

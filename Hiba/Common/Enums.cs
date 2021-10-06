@@ -10,7 +10,7 @@ namespace Hiba.Common
         public enum CooperationAndPartnersType { OrganizationsAndInstitutions, Individual}
         public enum TrainingType { TrainingPrograms, CurrentCourses , OnlineCourses }
         public enum AddToYourInformationType { Articles, StudiesAndResearch, TranslatedArticles }
-        public enum Sequence { First, Secound, Third, Fourth }
+        public enum Sequence { First, Secound, Third, Fourth ,Not}
 
     }
 }

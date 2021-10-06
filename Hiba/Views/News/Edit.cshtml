@@ -1,5 +1,5 @@
 ﻿@model Hiba.Models.News
-
+@using static Hiba.Common.Enums
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -34,32 +34,37 @@
                 <input asp-for="Lang" class="form-control" />
                 <span asp-validation-for="Lang" class="text-danger"></span>
             </div>
+            <div class="form-group col-md-6">
+                <select asp-for="Sequence" asp-items="@Html.GetEnumSelectList<Sequence>()" class="form-control" required="required">
+                    <option value="null">Select Message Type</option>
+                </select>
+            </div>
             @*<div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Secound" /> @Html.DisplayNameFor(model => model.Secound)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Third" /> @Html.DisplayNameFor(model => model.Third)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Fourth" /> @Html.DisplayNameFor(model => model.Fourth)
-                </label>
-            </div>
-            <div>
-                @Html.RadioButtonFor(model => model.First, "Firt")
-                @Html.RadioButtonFor(model => model.First, "Secound")
-                @Html.RadioButtonFor(model => model.First, "Third")
-                @Html.RadioButtonFor(model => model.First, "Fourth")
-            </div>*@
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Secound" /> @Html.DisplayNameFor(model => model.Secound)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Third" /> @Html.DisplayNameFor(model => model.Third)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Fourth" /> @Html.DisplayNameFor(model => model.Fourth)
+                    </label>
+                </div>
+                <div>
+                    @Html.RadioButtonFor(model => model.First, "Firt")
+                    @Html.RadioButtonFor(model => model.First, "Secound")
+                    @Html.RadioButtonFor(model => model.First, "Third")
+                    @Html.RadioButtonFor(model => model.First, "Fourth")
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

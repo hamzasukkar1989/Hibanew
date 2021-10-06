@@ -2,12 +2,12 @@
 using Hiba.Models;
 using Hiba.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using static Hiba.Common.Enums;
 
 namespace Hiba.Services.ContractsImplementation
 {
@@ -24,7 +24,13 @@ namespace Hiba.Services.ContractsImplementation
             CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
-            var page = await _context.News.Take(4).ToListAsync();
+            var page = await _context.News.Where
+                (
+                n=>n.Sequence==Sequence.First ||
+                n.Sequence == Sequence.Secound ||
+                n.Sequence == Sequence.Third ||
+                n.Sequence == Sequence.Fourth
+                ).ToListAsync();
             return page;
         }
     }
