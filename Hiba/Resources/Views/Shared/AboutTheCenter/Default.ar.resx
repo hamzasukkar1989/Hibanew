@@ -123,4 +123,7 @@
   <data name="Center" xml:space="preserve">
     <value>المركز</value>
   </data>
+  <data name="Service" xml:space="preserve">
+    <value>خدماتنا</value>
+  </data>
 </root>

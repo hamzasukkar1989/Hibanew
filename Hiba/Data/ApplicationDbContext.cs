@@ -27,5 +27,6 @@ namespace Hiba.Data
         public DbSet<Hiba.Models.Coaching> Coaching { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<AddToYourInformationTag> AddToYourInformationTags { get; set; }
     }
 }

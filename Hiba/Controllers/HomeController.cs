@@ -148,7 +148,7 @@ namespace Hiba.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public void Email(string name, string email, string phone, string age, string country, string education, string work, string massage)
+        public IActionResult Email(string name, string email, string phone, string age, string country, string education, string work, string massage)
         {
 
             string contentRootPath = _env.ContentRootPath;
@@ -178,8 +178,9 @@ namespace Hiba.Controllers
                 smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
                 smtp.Send(Email);
                 smtp.Disconnect(true);
+               
 
-              
+
             }
             catch (Exception ex)
             {
@@ -200,7 +201,7 @@ namespace Hiba.Controllers
 
 
             }
-
+            return View();
         }
     }
 }

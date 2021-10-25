@@ -123,4 +123,7 @@
   <data name="Center" xml:space="preserve">
     <value>Center</value>
   </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
 </root>

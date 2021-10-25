@@ -31,7 +31,10 @@ namespace Hiba.Controllers
         // GET: AddToYourInformations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.AddToYourInformation.ToListAsync());
+            return View(await _context
+                .AddToYourInformation
+                .Include(ai => ai.AddToYourInformationTag)
+                .ToListAsync());
         }
 
         // GET: AddToYourInformations/Details/5
@@ -55,16 +58,25 @@ namespace Hiba.Controllers
         // GET: AddToYourInformations/Create
         public IActionResult Create()
         {
-            ViewData["Related"] = new SelectList(_context.AddToYourInformation, "ID", "Name");
+            ViewData["AddToYourInformationTagID"] = new SelectList(_context.AddToYourInformationTags, "ID", "Name");
             return View();
         }
 
         public IActionResult Page(int id)
         {
             var data = _context.AddToYourInformation
-                //.Include(ai =>ai.Related)
-                .SingleOrDefault(ai => ai.ID==id);
-            return View(data);
+                .Include(ai =>ai.AddToYourInformationTag).ThenInclude(a=>a.AddToYourInformations)
+                .SingleOrDefault(ai => ai.ID == id);
+
+            ViewBag.Title1 = "Add To Your";
+            ViewBag.Title2 = "Informations";
+            if (cultureInfo.ToString() == "ar") 
+            {
+                ViewBag.Title1 = "أضف إلى ";
+                ViewBag.Title2 = "معلوماتك";
+            }
+
+                return View(data);
         }
         public IActionResult AddToYourInformations()
         {
@@ -75,7 +87,7 @@ namespace Hiba.Controllers
             {
                 ViewBag.ConsultationRequest = "طلب أستشارة";
                 ViewBag.Articles = "مقالات";
-                ViewBag.StudiesAndResearch ="بحوث ودراسات";
+                ViewBag.StudiesAndResearch = "بحوث ودراسات";
                 ViewBag.TranslatedArticles = "مواضيع مترجمة";
             }
             return View();
@@ -84,8 +96,8 @@ namespace Hiba.Controllers
         {
             var data = _context.AddToYourInformation.Where
                 (
-                    ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.StudiesAndResearch 
-                    && ai.Lang== cultureInfo.ToString()
+                    ai => ai.AddToYourInformationType == Enums.AddToYourInformationType.StudiesAndResearch
+                    && ai.Lang == cultureInfo.ToString()
                 ).ToList();
             return View(data);
         }
@@ -120,21 +132,16 @@ namespace Hiba.Controllers
             {
                 if (img != null && img.Length > 0)
                 {
-                    string imagepath = await _upload.UploadFile(img, "CooperationAndPartners");
+                    string imagepath = await _upload.UploadFile(img, "AddToYourInformation");
                     addToYourInformation.Image = imagepath;
                 }
-                //if (related.Length > 0)
-                //{
-                //    for (int i = 0; i < related.Length; i++)
-                //    {
-                //        var relate = _context.AddToYourInformation.Find(related[i]);
-                //        addToYourInformation.Related.Add(relate);
-                //    }
-                //}
+
+
                 _context.Add(addToYourInformation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AddToYourInformationTagID"] = new SelectList(_context.AddToYourInformationTags, "ID", "Name", addToYourInformation.AddToYourInformationTagID);
             return View(addToYourInformation);
         }
 
@@ -151,6 +158,7 @@ namespace Hiba.Controllers
             {
                 return NotFound();
             }
+            ViewData["AddToYourInformationTagID"] = new SelectList(_context.AddToYourInformationTags, "ID", "Name");
             return View(addToYourInformation);
         }
 
@@ -159,7 +167,7 @@ namespace Hiba.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,AddToYourInformation addToYourInformation)
+        public async Task<IActionResult> Edit(int id, AddToYourInformation addToYourInformation, IFormFile img)
         {
             if (id != addToYourInformation.ID)
             {
@@ -170,6 +178,11 @@ namespace Hiba.Controllers
             {
                 try
                 {
+                    if (img != null && img.Length > 0)
+                    {
+                        string imagepath = await _upload.UploadFile(img, "AddToYourInformation");
+                        addToYourInformation.Image = imagepath;
+                    }
                     _context.Update(addToYourInformation);
                     await _context.SaveChangesAsync();
                 }
@@ -184,6 +197,7 @@ namespace Hiba.Controllers
                         throw;
                     }
                 }
+                ViewData["AddToYourInformationTagID"] = new SelectList(_context.AddToYourInformationTags, "ID", "Name", addToYourInformation.AddToYourInformationTagID);
                 return RedirectToAction(nameof(Index));
             }
             return View(addToYourInformation);

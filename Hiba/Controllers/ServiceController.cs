@@ -27,11 +27,15 @@ namespace Hiba.Controllers
         public IActionResult Coaching()
         {
             var pagedata = _context.Pages.SingleOrDefault(p => p.Name == "Coaching" && p.Lang == cultureInfo.ToString());
-            ViewBag.Title1 = pagedata.Title1;
-            ViewBag.Title2 = pagedata.Title2;
-            ViewBag.Image = pagedata.Image;
-            ViewBag.Text = pagedata.Text;
-            ViewBag.align = "left";
+            if (pagedata!=null)
+            {
+                ViewBag.Title1 = pagedata.Title1;
+                ViewBag.Title2 = pagedata.Title2;
+                ViewBag.Image = pagedata.Image;
+                ViewBag.Text = pagedata.Text;
+                ViewBag.align = "left";
+            }
+           
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.align = "right";

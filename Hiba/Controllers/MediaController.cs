@@ -11,6 +11,7 @@ using Hiba.Helper;
 using Microsoft.AspNetCore.Http;
 using System.Globalization;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Hiba.Controllers
 {
@@ -27,8 +28,30 @@ namespace Hiba.Controllers
             _upload = upload;
         }
 
+        public async Task<IActionResult> UploadImage(IFormFile upload)
+        {
+
+            string imagepath = "";
+            if(upload != null && upload.Length > 0)
+            {
+                 imagepath = await _upload.UploadFile(upload, "Banner");
+                
+            }
+            var successMessage = "image is uploaded successfully";
+            //return new JsonResult(new { path = imagepath });
+            return Content(imagepath);
+        }
+
+
         public async Task<IActionResult> List()
         {
+            ViewBag.Title1 = "Photos";
+            ViewBag.Title2 = "Album";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.Title1 = "ألبوم";
+                ViewBag.Title2 = "الصور";
+            }
             return View(await _context.Medias.ToListAsync());
         }
         public async Task<IActionResult> Media(int id)

@@ -53,7 +53,7 @@
                          <div class="col-lg-6 col-md-6 col-sm-12">
                              <div class="full blog_img_popular">
                                  <img class="img-responsive" src="@Model.ElementAt(2).Image" style="height:575px;width:376px" alt="#" />
-                                 <a asp-controller="News" asp-action="News">
+                                 <a asp-controller="News" asp-action="News" asp-route-id="@Model.ElementAt(2).ID">
                                      <h4>@Model.ElementAt(2).Name</h4>
                                  </a>
                                  @*<p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>*@
@@ -66,7 +66,7 @@
                          <div class="col-lg-6 col-md-6 col-sm-12">
                              <div class="full blog_img_popular">
                                  <img class="img-responsive" src="@Model.ElementAt(3).Image" style="height:575px;width:376px" alt="#" />
-                                 <a asp-controller="News" asp-action="News">
+                                 <a asp-controller="News" asp-action="News" asp-route-id="@Model.ElementAt(3).ID">
                                      <h4>@Model.ElementAt(3).Name</h4>
                                  </a>
                                  @*<p>Pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>*@

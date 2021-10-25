@@ -4,14 +4,17 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@using static Hiba.Common.Enums
+<head>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+</head>
 <h1>Edit</h1>
 
 <h4>AddToYourInformation</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
@@ -20,19 +23,34 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Text" class="control-label"></label>
-                <input asp-for="Text" class="form-control" />
-                <span asp-validation-for="Text" class="text-danger"></span>
+                <label for="text" class="control-label"></label>
+                <textarea name="text" id="text" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor 4.
+            </textarea>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.Image" />
+                <img src="@Model.Image" />
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
+                <input type="file" asp-for="Image" class="form-control" name="img" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
+            <div class="form-group col-md-6">
+                <select asp-for="AddToYourInformationType" asp-items="@Html.GetEnumSelectList<AddToYourInformationType>()" class="form-control" required="required">
+                    <option value="null">Select AddToYourInformation Type</option>
+                </select>
+            </div>
             <div class="form-group">
-                <label asp-for="AddToYourInformationType" class="control-label"></label>
-                <select asp-for="AddToYourInformationType" class="form-control"></select>
-                <span asp-validation-for="AddToYourInformationType" class="text-danger"></span>
+                <label asp-for="Lang" class="control-label"></label>
+                <input asp-for="Lang" class="form-control" />
+                <span asp-validation-for="Lang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddToYourInformationTagID" class="control-label"></label>
+                <select asp-for="AddToYourInformationTagID" class="form-control" asp-items="ViewBag.AddToYourInformationTagID"></select>
+                <span asp-validation-for="AddToYourInformationTagID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -45,3 +63,8 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace('text');
+</script>
