@@ -39,34 +39,39 @@
                     <option value="null">Select Message Type</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label asp-for="Lang" class="control-label"></label>
+                <input asp-for="Lang" class="form-control" />
+                <span asp-validation-for="Lang" class="text-danger"></span>
+            </div>
             @*<div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)
-                    </label>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Secound" /> @Html.DisplayNameFor(model => model.Secound)
-                    </label>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Third" /> @Html.DisplayNameFor(model => model.Third)
-                    </label>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Fourth" /> @Html.DisplayNameFor(model => model.Fourth)
-                    </label>
-                </div>*@
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Secound" /> @Html.DisplayNameFor(model => model.Secound)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Third" /> @Html.DisplayNameFor(model => model.Third)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Fourth" /> @Html.DisplayNameFor(model => model.Fourth)
+            </label>
+        </div>*@
             @*<div>
-                    <div>
-                        <div>@Html.RadioButtonFor(model => model.First, "First")   Firt</div>
-                        <div>@Html.RadioButtonFor(model => model.First, "Secound") Secound</div>
-                        <div>@Html.RadioButtonFor(model => model.First, "Third")   Third</div>
-                        <div>@Html.RadioButtonFor(model => model.First, "Fourth")  Fourth</div>
-                    </div>
-                </div>*@
+            <div>
+                <div>@Html.RadioButtonFor(model => model.First, "First")   Firt</div>
+                <div>@Html.RadioButtonFor(model => model.First, "Secound") Secound</div>
+                <div>@Html.RadioButtonFor(model => model.First, "Third")   Third</div>
+                <div>@Html.RadioButtonFor(model => model.First, "Fourth")  Fourth</div>
+            </div>
+        </div>*@
         </form>
     </div>
 </div>
