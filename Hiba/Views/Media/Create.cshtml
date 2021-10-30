@@ -59,13 +59,26 @@
 
     //    }
     //);
+    //ClassicEditor
+    //    .create(document.querySelector('#text'), {
+    //        cloudServices: {
+    //            uploadUrl: '/Media/UploadImage'
+    //        }
+    //    })
+    //    .catch(error => {
+    //        console.log(error);
+    //    });
+
+
+
+
     ClassicEditor
-        .create(document.querySelector('#text'), {
-            cloudServices: {
-                uploadUrl: '/Media/UploadImage'
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+        .create(document.querySelector('#text'),
+            {
+                ckfinder: { uploadUrl: '/Media/UploadImage' }
+            })
+        .catch(error => { console.error(error); });
+
+
+
 </script>

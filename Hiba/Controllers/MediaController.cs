@@ -37,11 +37,25 @@ namespace Hiba.Controllers
                  imagepath = await _upload.UploadFile(upload, "Banner");
                 
             }
-            var successMessage = "image is uploaded successfully";
-            //return new JsonResult(new { path = imagepath });
-            return Content(imagepath);
-        }
+            //var successMessage = "image is uploaded successfully";
+            ////return new JsonResult(new { path = imagepath });
+            //return Content(imagepath);
 
+            var success = new uploadsuccess
+            {
+                Uploaded = 1,
+                Url = imagepath
+            };
+
+            return new JsonResult(success);
+
+        }
+        public class uploadsuccess
+        {
+            public int Uploaded { get; set; }
+            public string FileName { get; set; }
+            public string Url { get; set; }
+        }
 
         public async Task<IActionResult> List()
         {
