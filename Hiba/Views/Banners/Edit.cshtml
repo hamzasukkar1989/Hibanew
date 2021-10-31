@@ -38,6 +38,11 @@
                 <input type="file" asp-for="Image" class="form-control" name="img" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Lang" class="control-label"></label>
+                <input asp-for="Lang" class="form-control" />
+                <span asp-validation-for="Lang" class="text-danger"></span>
+            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="First" /> @Html.DisplayNameFor(model => model.First)

@@ -41,22 +41,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pogoSlider-slide" style="background-image:url(@Model.ElementAt(1).Image);">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="slide_text">
-                                        <h3><span span class="theme_color">@Model.ElementAt(1).Title1</span><br>@Model.ElementAt(1).Title2</h3>
-                                        <h4>@Model.ElementAt(1).Title3</h4>
-                                        <br>
-                                        <div class="full center">
-                                            <a class="contact_bt" href="https://wa.me/message/43JSY5KKCJYEK1">@ViewBag.RegisterNow</a>
+                    @if (@Model.ToList().Count > 1)
+                    {
+                        <div class="pogoSlider-slide" style="background-image:url(@Model.ElementAt(1).Image);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="slide_text">
+                                            <h3><span span class="theme_color">@Model.ElementAt(1).Title1</span><br>@Model.ElementAt(1).Title2</h3>
+                                            <h4>@Model.ElementAt(1).Title3</h4>
+                                            <br>
+                                            <div class="full center">
+                                                <a class="contact_bt" href="https://wa.me/message/43JSY5KKCJYEK1">@ViewBag.RegisterNow</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
                 </div>
                 <!-- .pogoSlider -->
             </div>
