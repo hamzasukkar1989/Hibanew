@@ -12,7 +12,7 @@
 <h4>Media</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="text" class="control-label"></label>
-                <textarea name="text" id="text" rows="10" cols="80">
+                <textarea name="text" id="text" rows="50" cols="80">
                 This is my textarea to be replaced with CKEditor 4.
             </textarea>
             </div>
@@ -75,8 +75,9 @@
     ClassicEditor
         .create(document.querySelector('#text'),
             {
-                ckfinder: { uploadUrl: '/Media/UploadImage' }
+                ckfinder: { uploadUrl: '/Media/UploadImage' },
             })
+        .config.extraPlugins = 'html5video'
         .catch(error => { console.error(error); });
 
 
