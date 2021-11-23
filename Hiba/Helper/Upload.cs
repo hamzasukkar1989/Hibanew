@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,12 +12,26 @@ namespace Hiba.Helper
     public interface IUploadFile
     {
         Task<string> UploadFile(IFormFile file, string Folder);
+        string DeleteFile(string path);
     }
     public class UploadFile : IUploadFile
     {
         readonly IWebHostEnvironment _webHostEnvironment;
 
         public UploadFile(IWebHostEnvironment webHostEnvironment) => _webHostEnvironment = webHostEnvironment;
+
+
+        public string DeleteFile(string path)
+            {
+                string Path = _webHostEnvironment.WebRootPath;
+                Path += path.Replace("/", @"\");
+
+                if (System.IO.File.Exists(Path))
+                {
+                    System.IO.File.Delete(Path);
+                }          
+                return  "sss";
+            }
 
         async Task<string> IUploadFile.UploadFile(IFormFile file, string Folder)
         {

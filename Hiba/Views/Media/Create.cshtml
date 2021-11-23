@@ -80,11 +80,30 @@
     ClassicEditor
         .create(document.querySelector('#text'),
             {
-                ckfinder: { uploadUrl: '/Media/UploadImage' },
+                ckfinder: {
+                    uploadUrl: '/Media/UploadImage'
+                },
+                html5video: {
+                    uploadUrl: '/Media/UploadImage'
+                }
             })
-        .config.extraPlugins = 'html5video'
         .catch(error => { console.error(error); });
 
+    ClassicEditor.defaultConfig = {
+        toolbar: ['heading', '|', 'bold', 'italic', 'custombutton', 'html5video','ckfinder'],
 
+        // This value must be kept in sync with the language defined in webpack.config.js.
+        language: 'fr'
+    };
+    //CKEDITOR.editorConfig = function (config) {
+    //    // Define changes to default configuration here. For example:
+    //    // config.language = 'fr';
+    //    // config.uiColor = '#AADC6E';
+
+    //    config.extraPlugins = 'image';
+    //    config.extraPlugins = 'video';
+    //    config.allowedContent = true;
+    //    config.filebrowserUploadUrl = '../admin/ckupload.php';
+    //};
 
 </script>

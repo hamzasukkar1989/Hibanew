@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
 using System.Globalization;
 using System.Threading;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Hiba.Controllers
 {
@@ -20,10 +22,12 @@ namespace Hiba.Controllers
         private readonly IUploadFile _upload;
         CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
         CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
-        public ClientsController(ApplicationDbContext context, IUploadFile upload)
+        readonly IWebHostEnvironment _webHostEnvironment;
+        public ClientsController(ApplicationDbContext context, IUploadFile upload, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _upload = upload;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Clients
@@ -174,7 +178,19 @@ namespace Hiba.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var client = await _context.Clients.FindAsync(id);
+
+            //string path = _webHostEnvironment.WebRootPath;
+            // path += client.Image.Replace("/", @"\");          
+
+
+            //if (System.IO.File.Exists(path))
+            //{
+            //    System.IO.File.Delete(path);
+            //}
+
+            string tets = _upload.DeleteFile(client.Image);
             _context.Clients.Remove(client);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
