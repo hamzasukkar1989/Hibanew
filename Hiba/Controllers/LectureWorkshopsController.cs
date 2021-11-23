@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Hiba.Helper;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -16,6 +18,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public LectureWorkshopsController(ApplicationDbContext context, IUploadFile upload)
         {

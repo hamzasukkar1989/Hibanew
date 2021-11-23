@@ -34,9 +34,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Work)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -63,9 +60,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Work)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Message)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

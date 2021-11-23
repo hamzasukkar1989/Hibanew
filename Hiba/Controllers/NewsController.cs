@@ -78,6 +78,11 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> List()
         {
+            ViewBag.Title = "News";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.align = "الأخبار";
+            }
             var news = await _context.News.Where(n => n.Lang == cultureInfo.ToString()).ToListAsync();
             return View(news);
         }

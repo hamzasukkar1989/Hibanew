@@ -29,7 +29,8 @@ namespace Hiba.Services.ContractsImplementation
                 n=>n.Sequence==Sequence.First ||
                 n.Sequence == Sequence.Secound ||
                 n.Sequence == Sequence.Third ||
-                n.Sequence == Sequence.Fourth
+                n.Sequence == Sequence.Fourth &&
+                n.Lang ==cultureInfo.ToString()
                 ).ToListAsync();
             return page;
         }

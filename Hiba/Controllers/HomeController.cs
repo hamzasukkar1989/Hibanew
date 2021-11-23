@@ -175,7 +175,7 @@ namespace Hiba.Controllers
                 // send email
                 using var smtp = new MailKit.Net.Smtp.SmtpClient();
                 smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
+                smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "oyvjjsohdkrgvoxv");
                 smtp.Send(Email);
                 smtp.Disconnect(true);
                
@@ -185,23 +185,8 @@ namespace Hiba.Controllers
             catch (Exception ex)
             {
 
-
-                //if (!System.IO.File.Exists(webRootPath + "/log.txt"))
-                //{
-                //    System.IO.File.Create(webRootPath + "/log.txt");
-                //}
-
-
-                //using (StreamWriter outputFile = new StreamWriter(Path.Combine(webRootPath + "/log.txt")))
-                //{
-
-                //    outputFile.WriteLine(ex.Message);
-                //}
-
-
-
             }
-            return View();
+            return View("Index");
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Hiba.Controllers
         // GET: Banners
         public async Task<IActionResult> Index()
         {
-            var data = await _context.Banners.Where(b=>b.Lang==cultureInfo.ToString()).ToListAsync();
+            var data = await _context.Banners.ToListAsync();
             return View(data);
         }
 
@@ -122,7 +122,7 @@ namespace Hiba.Controllers
                     }
                     if (banner.First==true)
                     {
-                        var banners = _context.Banners.Where(b => b.ID != id).ToList();
+                        var banners = _context.Banners.Where(b => b.ID != id && b.Lang== cultureInfo.ToString()).ToList();
 
                         foreach (var _banner in banners)
                         {

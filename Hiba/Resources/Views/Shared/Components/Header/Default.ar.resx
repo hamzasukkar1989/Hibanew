@@ -132,10 +132,10 @@
   <data name="Our Clients" xml:space="preserve">
     <value>عملاؤنا</value>
   </data>
-  <data name="Title1" xml:space="preserve">
-    <value>عنوان 1</value>
+  <data name="Services" xml:space="preserve">
+    <value>خدماتنا</value>
   </data>
   <data name="Title2" xml:space="preserve">
-    <value>عنوان 2</value>
+    <value>ذاكرة قلم</value>
   </data>
 </root>

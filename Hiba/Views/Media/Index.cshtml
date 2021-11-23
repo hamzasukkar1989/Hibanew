@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Image)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lang)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -27,6 +30,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lang)
             </td>
             <td>
                 <img style="width:300px;height:300px" src="@item.Image" />

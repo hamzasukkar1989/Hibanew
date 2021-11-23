@@ -31,6 +31,11 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> Courses()
         {
+            ViewBag.Title = "courses";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.Title = "الدورات";
+            }
             var data = await _context.Courses.Where(p => p.Lang == cultureInfo.ToString()).ToListAsync();
             return View(data);
         }
@@ -96,7 +101,7 @@ namespace Hiba.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Title,Text,Image")] Course course)
+        public async Task<IActionResult> Edit(int id,Course course)
         {
             if (id != course.ID)
             {

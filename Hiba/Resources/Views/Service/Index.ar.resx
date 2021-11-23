@@ -129,6 +129,9 @@
   <data name="Nutrition and health consultations" xml:space="preserve">
     <value>استشارات تغذية وصحة</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>خدماتنا</value>
+  </data>
   <data name="Social and improvement  consultations" xml:space="preserve">
     <value>استشارات اجتماعية وتنموية</value>
   </data>

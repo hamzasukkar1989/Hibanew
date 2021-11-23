@@ -31,11 +31,11 @@
                 <input type="file" asp-for="Image" class="form-control" name="img" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Lang" class="control-label"></label>
-                <input asp-for="Lang" class="form-control" />
-                <span asp-validation-for="Lang" class="text-danger"></span>
-            </div>
+            <select asp-for="Lang" class="form-select" aria-label="Default select example">
+                <option selected>Select Language</option>
+                <option value="en-US">Englih</option>
+                <option value="ar">Arabic</option>
+            </select>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

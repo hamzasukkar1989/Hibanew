@@ -18,7 +18,7 @@
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/css/timeline.css" rel="stylesheet" />
 </head>
-@if (@Model.ToList().Count > 0)
+@if (Model.ToList().Count > 0 && Model!=null)
 {
     <!-- Start Banner -->
     <div class="ulockd-home-slider">
@@ -41,28 +41,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pogoSlider-slide" style="background-image:url(@Model.ElementAt(1).Image);">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="slide_text">
-                                        <h3><span span class="theme_color">@Model.ElementAt(1).Title1</span><br>@Model.ElementAt(1).Title2</h3>
-                                        <h4>@Model.ElementAt(1).Title3</h4>
-                                        <br>
-                                        <div class="full center">
-                                            <a class="contact_bt" href="https://wa.me/message/43JSY5KKCJYEK1">@ViewBag.RegisterNow</a>
+                    @if (@Model.ToList().Count > 1)
+                    {
+                        <div class="pogoSlider-slide" style="background-image:url(@Model.ElementAt(1).Image);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="slide_text">
+                                            <h3><span span class="theme_color">@Model.ElementAt(1).Title1</span><br>@Model.ElementAt(1).Title2</h3>
+                                            <h4>@Model.ElementAt(1).Title3</h4>
+                                            <br>
+                                            <div class="full center">
+                                                <a class="contact_bt" href="https://wa.me/message/43JSY5KKCJYEK1">@ViewBag.RegisterNow</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
                 </div>
                 <!-- .pogoSlider -->
             </div>
         </div>
     </div>
     <!-- End Banner -->
+}
     <!-- section -->
     <div class="section tabbar_menu">
         <div class="container">
@@ -75,8 +80,8 @@
                             <li><a asp-controller="AddToYourInformations" asp-action="AddToYourInformations"><span class="icon"><img src="~/images/AddToYourInformation.png" alt="#" /></span><span>@Localizer["Add to your information"]</span></a></li>
                             <li><a asp-controller="Media" asp-action="List"><span class="icon"><img src="~/images/Gallery.png" alt="#" /></span><span>@Localizer["Gallery"]</span></a></li>
                             <li><a asp-controller="Certificates" asp-action="Check"><span class="icon"><img src="~/images/Certificates.png" alt="#" /></span><span>@Localizer["Certificates"]</span></a></li>
-                            <li><a asp-controller="Service" asp-action="Index"><span class="icon"><img src="~/images/Service.png" alt="#" /></span><span>@Localizer["Title1"]</span></a></li>
-                            <li><a asp-controller="AddToYourInformations" asp-action="AddToYourInformations"><span class="icon"><img src="~/images/i6.png" alt="#" /></span><span>@Localizer["Title2"]</span></a></li>
+                            <li><a asp-controller="Service" asp-action="Index"><span class="icon"><img src="~/images/Service.png" alt="#" /></span><span>@Localizer["Services"]</span></a></li>
+                            <li><a href="https://zq-hibakahwaji.blogspot.com"><span class="icon"><img src="~/images/zq.png" alt="#" /></span><span>@Localizer["Zakert Qalam"]</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,7 +89,7 @@
         </div>
     </div>
     <!-- end section -->
-}
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
