@@ -12,7 +12,7 @@
 <h4>Media</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
@@ -22,14 +22,13 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
+                <input type="hidden" asp-for="@Model.Image" />
+                <img style="height:300px;width:300px" src="@Model.Image" />
             </div>
             <div class="form-group">
                 <label for="text" class="control-label"></label>
                 <textarea name="text" id="text" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor 4.
+                @Html.Raw(@Model.Text)
             </textarea>
             </div>
             <select asp-for="Lang" class="form-select" aria-label="Default select example">

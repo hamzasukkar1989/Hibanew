@@ -26,7 +26,7 @@ namespace Hiba.ViewComponents
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }          
             return View(_consultationrequest);

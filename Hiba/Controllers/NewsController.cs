@@ -78,10 +78,10 @@ namespace Hiba.Controllers
 
         public async Task<IActionResult> List()
         {
-            ViewBag.Title = "News";
+            ViewBag.NewsTitle = "News";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.align = "الأخبار";
+                ViewBag.NewsTitle = "الأخبار";
             }
             var news = await _context.News.Where(n => n.Lang == cultureInfo.ToString()).ToListAsync();
             return View(news);
@@ -93,9 +93,9 @@ namespace Hiba.Controllers
             return View(await _context.News.ToListAsync());
         }
 
-        public async Task<IActionResult> Pagination()
+        public IActionResult Pagination()
         {
-            return View();
+            return  View();
         }
 
         // GET: News/Details/5

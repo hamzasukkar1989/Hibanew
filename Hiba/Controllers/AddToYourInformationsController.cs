@@ -85,7 +85,7 @@ namespace Hiba.Controllers
             ViewBag.TranslatedArticles = "Translated articles";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.Articles = "مقالات";
                 ViewBag.StudiesAndResearch = "بحوث ودراسات";
                 ViewBag.TranslatedArticles = "مواضيع مترجمة";

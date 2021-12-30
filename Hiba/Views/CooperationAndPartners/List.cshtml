@@ -4,20 +4,6 @@
     ViewData["Title"] = "Courses";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout_ar.cshtml";
-    @*@if (@ViewBag.lang=="ar")
-        {
-            Layout = "~/Views/Shared/_Layout_ar.cshtml";
-        }
-        else
-        {
-            Layout = "~/Views/Shared/_Layout.cshtml";
-        }*@
-
-}
 @using Microsoft.Extensions.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 
@@ -80,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="full">
                         <div class="heading_main text_align_center">
-                            <h2><span>@Localizer["H3"] </span>@Localizer["H4"]</h2>
+                            <h2><span>@ViewBag.t1</span>@ViewBag.t2</h2>
                         </div>
                     </div>
                 </div>
@@ -90,7 +76,7 @@
                     {
                         <div class="col-md-4">
                             <div class="full blog_img_popular">
-                                <img class="img-responsive" src="~/images/p1.png" alt="#" />
+                                <img class="img-responsive" src="@course.Image" alt="#" />
                                 <a href="">
                                     <h4>@course.Name</h4>
                                 </a>                               

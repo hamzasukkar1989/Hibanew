@@ -73,6 +73,11 @@ namespace Hiba.Controllers
         public IActionResult Page(int id)
         {
             var data = _context.CooperationAndPartners.SingleOrDefault(p => p.ID == id);
+            ViewBag.mytitle = "Cooperation And Partners";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.mytitle = "هيئات ومؤسسات";
+            }
             return View(data);
         }
         public IActionResult OrganizationsAndInstitutions()
@@ -91,7 +96,15 @@ namespace Hiba.Controllers
         }
         public async Task<IActionResult> List()
         {
-            return View(await _context.CooperationAndPartners.ToListAsync());
+            ViewBag.t1 = "Cooperation";
+            ViewBag.t2 = "And Partners";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.t1 = "هيئات";
+                ViewBag.t1 = "ومؤسسات";
+            }
+            var data = await _context.CooperationAndPartners.Where(c=>c.Lang == cultureInfo.ToString()).ToListAsync();
+            return View(data);
         }
 
         // GET: CooperationAndPartners/Details/5

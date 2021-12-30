@@ -58,10 +58,12 @@ namespace Hiba.Controllers
         {
             ViewBag.ConsultationRequest = "Consultation Request";
             ViewBag.align = "left";
+            ViewBag.NutritionAndHealthConsultations = "NutritionAndHealthConsultations";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
+                ViewBag.NutritionAndHealthConsultations = "استشارات تغذية وصحة";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/NutritionAndHealthConsultations/Index.cshtml",data);
@@ -72,7 +74,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Financial Consults" && p.Lang == cultureInfo.ToString());
@@ -84,7 +86,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Economic Consults" && p.Lang == cultureInfo.ToString());
@@ -96,7 +98,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Management Consults" && p.Lang == cultureInfo.ToString());
@@ -148,7 +150,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/RaisingChildrenConsultations.cshtml",data);
@@ -161,7 +163,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/MaritalConsultations.cshtml",data);
@@ -173,7 +175,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             return View("~/Views/Service/SocialAndImprovementConsultations/FamilyConsultations/AdolescentCounseling.cshtml",data);
@@ -185,7 +187,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Psychological Counseling"&& p.Lang == cultureInfo.ToString());
@@ -273,9 +275,11 @@ namespace Hiba.Controllers
         {
             var data = _context.TrainingProgram.SingleOrDefault(tp => tp.ID == id && tp.Lang == cultureInfo.ToString());
             ViewBag.RegisterCourse = "Register A Course";
+            ViewBag.MyTitle = "Courses";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.RegisterCourse = "تسجيل دورة";
+                ViewBag.MyTitle = "الدورات";
             }
             return View("~/Views/Service/Training/Course.cshtml",data);
         }
@@ -307,7 +311,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Youth Problems" && p.Lang == cultureInfo.ToString());
@@ -320,7 +324,7 @@ namespace Hiba.Controllers
             ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.ConsultationRequest = "طلب أستشارة";
+                ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Career Problem" && p.Lang == cultureInfo.ToString());
