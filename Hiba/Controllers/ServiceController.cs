@@ -58,12 +58,14 @@ namespace Hiba.Controllers
         {
             ViewBag.ConsultationRequest = "Consultation Request";
             ViewBag.align = "left";
-            ViewBag.NutritionAndHealthConsultations = "NutritionAndHealthConsultations";
+            ViewBag.Title1 = "Nutrition And ";
+            ViewBag.Title2 = "Health Consultations";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.ConsultationRequest = "طلب استشارة";
                 ViewBag.align = "right";
-                ViewBag.NutritionAndHealthConsultations = "استشارات تغذية وصحة";
+                ViewBag.Title1 = "استشارات تغذية";
+                ViewBag.Title2 = " وصحة";
             }
             var data = _context.Pages.SingleOrDefault(p => p.Name == "Nutrition And Health Consultations" && p.Lang == cultureInfo.ToString());
             return View("~/Views/Service/NutritionAndHealthConsultations/Index.cshtml",data);

@@ -32,6 +32,8 @@ namespace Hiba.Controllers
         private readonly IStringLocalizer<HomeController> _localizer;
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _env;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer, ApplicationDbContext context, IWebHostEnvironment env)
         {
@@ -84,6 +86,25 @@ namespace Hiba.Controllers
 
         public IActionResult Contact()
         {
+            ViewBag.name = "Your Name";
+            ViewBag.email = "Your Name";
+            ViewBag.phone = "Your Name";
+            ViewBag.age = "Your Name";
+            ViewBag.country = "Your Name";
+            ViewBag.education = "Your Name";
+            ViewBag.work = "Your Name";
+            ViewBag.massage = "Your Name";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.name = "الأسم";
+                ViewBag.email = "البريد الإلكتروني";
+                ViewBag.phone = "رقم الهاتف";
+                ViewBag.age = "العمر";
+                ViewBag.country = "البلد";
+                ViewBag.education = "التعليم";
+                ViewBag.work = "العمل";
+                ViewBag.massage = "الرسالة";
+            }
             return View();
         }
 

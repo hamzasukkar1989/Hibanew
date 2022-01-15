@@ -166,7 +166,7 @@
     <value>ألبوم الصور</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>الصفحة الرئيسة</value>
+    <value>الصفحة الرئيسية</value>
   </data>
   <data name="Individuals" xml:space="preserve">
     <value>أفراد</value>
@@ -220,7 +220,7 @@
     <value>سوريا</value>
   </data>
   <data name="Training" xml:space="preserve">
-    <value>التدريب</value>
+    <value>تتدريب</value>
   </data>
   <data name="Training Programs" xml:space="preserve">
     <value>البرامج التدريبية</value>

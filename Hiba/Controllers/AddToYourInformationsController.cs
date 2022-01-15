@@ -70,10 +70,12 @@ namespace Hiba.Controllers
 
             ViewBag.Title1 = "Add To Your";
             ViewBag.Title2 = "Informations";
+            ViewBag.align = "left";
             if (cultureInfo.ToString() == "ar") 
             {
                 ViewBag.Title1 = "أضف إلى ";
                 ViewBag.Title2 = "معلوماتك";
+                ViewBag.align = "right";
             }
 
                 return View(data);

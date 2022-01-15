@@ -172,7 +172,6 @@ namespace Hiba.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, News news, IFormFile img)
         {
             if (id != news.ID)
@@ -185,11 +184,13 @@ namespace Hiba.Controllers
                 try
                 {
                     var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence && n.ID !=news.ID);
+
                     if (getnewsSequence != null)
                     {
                         getnewsSequence.Sequence = Common.Enums.Sequence.Not;
                         _context.Update(getnewsSequence);
                     }
+
                     if (img != null && img.Length > 0)
                     {
                         string imagepath = await _myupload.UploadFile(img, "News");
