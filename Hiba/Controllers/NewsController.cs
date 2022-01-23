@@ -183,7 +183,7 @@ namespace Hiba.Controllers
             {
                 try
                 {
-                    var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence && n.ID !=news.ID);
+                    var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence && n.ID !=news.ID && n.Lang == cultureInfo.ToString());
 
                     if (getnewsSequence != null)
                     {

@@ -131,7 +131,7 @@ namespace Hiba.Controllers
                     }
                     if (banner.Secound == true)
                     {
-                        var banners = _context.Banners.Where(b=> b.ID!=id).ToList();
+                        var banners = _context.Banners.Where(b=> b.ID!=id && b.Lang == cultureInfo.ToString()).ToList();
 
                         foreach (var _banner in banners)
                         {

@@ -24,11 +24,13 @@ namespace Hiba.ViewComponents
             ViewBag.Title1 = "Add To Your";
             ViewBag.Title2 = "Information";
             ViewBag.align = "left";
+            ViewBag.ZakrtQalam = "Zakrt Qalam";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "أضف إلى ";
                 ViewBag.Title2 = "معلوماتك";
                 ViewBag.align = "right";
+                ViewBag.ZakrtQalam = "ذاكرة قلم";
             }
             var addToYourInformation = await _addToYourInformation.AddToYourInformation();
             return View(addToYourInformation);

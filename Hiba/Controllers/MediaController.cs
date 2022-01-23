@@ -66,7 +66,7 @@ namespace Hiba.Controllers
                 ViewBag.Title1 = "ألبوم";
                 ViewBag.Title2 = "الصور";
             }
-            return View(await _context.Medias.ToListAsync());
+            return View(await _context.Medias.Where(m=>m.Lang==cultureInfo.ToString()).ToListAsync());
         }
         public async Task<IActionResult> Media(int id)
         {
