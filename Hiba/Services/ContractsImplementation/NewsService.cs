@@ -26,11 +26,10 @@ namespace Hiba.Services.ContractsImplementation
 
             var page = await _context.News.Where
                 (
-                n=>n.Sequence==Sequence.First ||
-                n.Sequence == Sequence.Secound ||
-                n.Sequence == Sequence.Third ||
-                n.Sequence == Sequence.Fourth &&
-                n.Lang ==cultureInfo.ToString()
+                n=>n.Sequence==Sequence.First  && n.Lang == cultureInfo.ToString() ||
+                n.Sequence == Sequence.Secound && n.Lang == cultureInfo.ToString() ||
+                n.Sequence == Sequence.Third   && n.Lang == cultureInfo.ToString() ||
+                n.Sequence == Sequence.Fourth  && n.Lang == cultureInfo.ToString()
                 ).ToListAsync();
             return page;
         }

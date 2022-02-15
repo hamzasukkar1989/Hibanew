@@ -86,14 +86,14 @@ namespace Hiba.Controllers
 
         public IActionResult Contact()
         {
-            ViewBag.name = "Your Name";
-            ViewBag.email = "Your Name";
-            ViewBag.phone = "Your Name";
-            ViewBag.age = "Your Name";
-            ViewBag.country = "Your Name";
-            ViewBag.education = "Your Name";
-            ViewBag.work = "Your Name";
-            ViewBag.massage = "Your Name";
+            ViewBag.name = "Name";
+            ViewBag.email = "E-mail";
+            ViewBag.phone = "Phone no";
+            ViewBag.age = "Age";
+            ViewBag.country = "Country";
+            ViewBag.education = "Education Level";
+            ViewBag.work = "Work";
+            ViewBag.massage = "Massage";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.name = "الأسم";
@@ -101,7 +101,7 @@ namespace Hiba.Controllers
                 ViewBag.phone = "رقم الهاتف";
                 ViewBag.age = "العمر";
                 ViewBag.country = "البلد";
-                ViewBag.education = "التعليم";
+                ViewBag.education = "المؤهل";
                 ViewBag.work = "العمل";
                 ViewBag.massage = "الرسالة";
             }

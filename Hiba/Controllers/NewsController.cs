@@ -137,7 +137,7 @@ namespace Hiba.Controllers
                     string imagepath = await _myupload.UploadFile(img, "News");
                     news.Image = imagepath;
                 }
-                var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence);
+                var getnewsSequence = _context.News.SingleOrDefault(n => n.Sequence == news.Sequence && n.Lang == cultureInfo.ToString());
                 if (getnewsSequence!=null)
                 {
                     getnewsSequence.Sequence = Common.Enums.Sequence.Not;
