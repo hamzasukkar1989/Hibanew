@@ -94,6 +94,8 @@ namespace Hiba.Controllers
             ViewBag.education = "Education Level";
             ViewBag.work = "Work";
             ViewBag.massage = "Massage";
+            ViewBag.contactus = "Contact us";
+            ViewBag.send = "Contact us";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.name = "الأسم";
@@ -104,6 +106,8 @@ namespace Hiba.Controllers
                 ViewBag.education = "المؤهل";
                 ViewBag.work = "العمل";
                 ViewBag.massage = "الرسالة";
+                ViewBag.contactus = "اتصل بنا";
+                ViewBag.send = "إرسال";
             }
             return View();
         }
