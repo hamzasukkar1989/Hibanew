@@ -123,9 +123,6 @@
   <data name="Certificates" xml:space="preserve">
     <value>الشهادات</value>
   </data>
-  <data name="Comunication test" xml:space="preserve">
-    <value>اختبر تواصلك</value>
-  </data>
   <data name="Cooperation and partners" xml:space="preserve">
     <value>تعاون وشركاء</value>
   </data>
@@ -137,6 +134,9 @@
   </data>
   <data name="Services" xml:space="preserve">
     <value>خدماتنا</value>
+  </data>
+  <data name="Social media scale" xml:space="preserve">
+    <value>اختبر تواصلك</value>
   </data>
   <data name="Zakert Qalam" xml:space="preserve">
     <value>ذاكرة قلم</value>

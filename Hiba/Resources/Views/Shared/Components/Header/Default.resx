@@ -118,13 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add to your information" xml:space="preserve">
-    <value>Read more information</value>
+    <value>Add to your information</value>
   </data>
   <data name="Certificates" xml:space="preserve">
     <value>Certificates</value>
-  </data>
-  <data name="Comunication test" xml:space="preserve">
-    <value>Comunication test</value>
   </data>
   <data name="Cooperation and partners" xml:space="preserve">
     <value>Cooperation and partners</value>
@@ -137,6 +134,9 @@
   </data>
   <data name="Services" xml:space="preserve">
     <value>Services</value>
+  </data>
+  <data name="Social media scale" xml:space="preserve">
+    <value>Social media scale</value>
   </data>
   <data name="Zakert Qalam" xml:space="preserve">
     <value>Zakert Qalam</value>
