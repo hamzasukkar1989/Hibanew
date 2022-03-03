@@ -95,10 +95,10 @@ namespace Hiba.Controllers
             ViewBag.work = "Work";
             ViewBag.massage = "Massage";
             ViewBag.contactus = "Contact us";
-            ViewBag.send = "Contact us";
+            ViewBag.send = "Send";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.name = "الأسم";
+                ViewBag.name = "الاسم";
                 ViewBag.email = "البريد الإلكتروني";
                 ViewBag.phone = "رقم الهاتف";
                 ViewBag.age = "العمر";

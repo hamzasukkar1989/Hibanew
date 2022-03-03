@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -16,6 +18,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public CertificatesController(ApplicationDbContext context, IUploadFile upload)
         {
@@ -27,10 +31,18 @@ namespace Hiba.Controllers
         public IActionResult Check(string code)
         {
             var data = _context.Certificates.SingleOrDefault(c => c.Code == code);
+           
             return RedirectToAction("ViewCertificate", new { code = code });
         }
         public  IActionResult Check()
         {
+            ViewBag.CertificateLine1 = "trainees are given a certificate of attendance including the type of training, the number of attendance hours, and the name of the trainer.";
+            ViewBag.CertificateLine2 = "To verify the certificate, enter the certificate code and number.";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.CertificateLine1 = "تمنح للمتدربين شهادة حضور متضمنة نوع التدريب وعدد ساعات الحضور واسم المدرب";
+                ViewBag.CertificateLine2 = "للتحقق من الشهادة ادخل رمز الشهادة ورقمها";
+            }
             return View();
         }
 

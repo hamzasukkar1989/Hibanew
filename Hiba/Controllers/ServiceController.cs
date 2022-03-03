@@ -234,7 +234,7 @@ namespace Hiba.Controllers
 
         public IActionResult OnlineCourses()
         {
-            ViewBag.Title1 = "Self And Improvement";
+            ViewBag.Title1 = "Online Courses";
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "دورات أون لاين";
