@@ -193,14 +193,17 @@ namespace Hiba.Controllers
                 _context.SaveChanges();
 
                 var Email = new MimeMessage();
-                Email.From.Add(MailboxAddress.Parse("hamzasukkarforprogramming@gmail.com"));
+                Email.From.Add(MailboxAddress.Parse("info@heba-ssi.com"));
                 Email.To.Add(MailboxAddress.Parse(email));
                 Email.Subject = "Admin Support Replay for:";
                 Email.Body = new TextPart(TextFormat.Html) { Text = massage };
                 // send email
                 using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "oyvjjsohdkrgvoxv");
+                //smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                //smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
+                smtp.Connect("heba-ssi.com", 465);
+                //smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
+                smtp.Authenticate("info@heba-ssi.com", "Ah@123456");
                 smtp.Send(Email);
                 smtp.Disconnect(true);
                

@@ -9,6 +9,8 @@ using Hiba.Data;
 using Hiba.Models;
 using Microsoft.AspNetCore.Http;
 using Hiba.Helper;
+using System.Globalization;
+using System.Threading;
 
 namespace Hiba.Controllers
 {
@@ -16,6 +18,8 @@ namespace Hiba.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IUploadFile _upload;
+        CultureInfo uiCultureInfo = Thread.CurrentThread.CurrentUICulture;
+        CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
         public CertificatesController(ApplicationDbContext context, IUploadFile upload)
         {
@@ -26,11 +30,17 @@ namespace Hiba.Controllers
         [HttpPost]
         public IActionResult Check(string code)
         {
+           
             var data = _context.Certificates.SingleOrDefault(c => c.Code == code);
             return RedirectToAction("ViewCertificate", new { code = code });
         }
         public  IActionResult Check()
         {
+            ViewBag.imagename = "/images/check en.jpg";
+            if (cultureInfo.ToString() == "ar")
+            {
+                ViewBag.imagename = "/images/check ar.jpg";
+            }
             return View();
         }
 
