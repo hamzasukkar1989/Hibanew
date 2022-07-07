@@ -19,7 +19,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Hiba</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/site.css" />
     <link href="/css/animate.css" rel="stylesheet" />
@@ -91,7 +91,7 @@
 
                         </li>
                         <li><a class="nav-link" asp-controller="News" asp-action="List">@Localizer["News"]</a></li>
-                        <li><a class="nav-link" asp-controller="Home" asp-action="Contact">@Localizer["Contact Us"]</a></li>
+                        <li><a class="nav-link" asp-controller="Home" style="text-transform: none" asp-action="Contact">@Localizer["Contact Us"]</a></li>
                         <li>
                             <div class="dropdown show">
                                 <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

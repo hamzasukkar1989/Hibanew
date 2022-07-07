@@ -14,7 +14,7 @@ namespace Hiba.Models
         [Required(AllowEmptyStrings = false)]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false)]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public int Age { get; set; }
         public string Country { get; set; }
         public string Education { get; set; }

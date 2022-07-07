@@ -234,10 +234,10 @@ namespace Hiba.Controllers
 
         public IActionResult OnlineCourses()
         {
-            ViewBag.Title1 = "Self And Improvement";
+            ViewBag.Title1 = "Online Courses";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.Title1 = "دورات أون لاين";
+                ViewBag.Title1 = "الدورات النشطة";
             }
             var data = _context.TrainingProgram.Where
                 (
@@ -252,8 +252,8 @@ namespace Hiba.Controllers
             ViewBag.Title2 = "Courses";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.Title1 = "البرامج";
-                ViewBag.Title2 = "التدربية";
+                ViewBag.Title1 = "الدورات";
+                ViewBag.Title2 = "الحالية";
             }
             var data = _context.TrainingProgram.Where(t => t.TrainingType == Common.Enums.TrainingType.CurrentCourses && t.Lang == cultureInfo.ToString()).ToList();
             return View("~/Views/Service/Training/CurrentTrainingCourses.cshtml",data);
@@ -266,7 +266,7 @@ namespace Hiba.Controllers
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "الدورات";
-                ViewBag.Title2 = "التدربية";
+                ViewBag.Title2 = "التدريبية";
             }
              
             var data = _context.TrainingProgram.Where(t => t.TrainingType == Common.Enums.TrainingType.TrainingPrograms && t.Lang== cultureInfo.ToString()).ToList();
@@ -296,7 +296,7 @@ namespace Hiba.Controllers
             if (cultureInfo.ToString() == "ar")
             {
                 ViewBag.Title1 = "البرامج";
-                ViewBag.Title2 = "التدربية";
+                ViewBag.Title2 = "التدريبية";
                 ViewBag.OnlineCourses = "الدورات النشطة";
                 ViewBag.TrainingPrograms = "البرامج التدريبية";
                 ViewBag.CurrentTrainingCourses = "الدورات الحالية";

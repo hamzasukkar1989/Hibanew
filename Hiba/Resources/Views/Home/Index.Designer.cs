@@ -115,7 +115,7 @@ namespace Hiba.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact Us.
+        ///   Looks up a localized string similar to Contact us.
         /// </summary>
         public static string ContactUs {
             get {

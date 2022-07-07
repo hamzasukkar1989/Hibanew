@@ -183,7 +183,7 @@ namespace Hiba.Controllers
                 Contact contact = new Contact();
                 contact.Name = name;
                 contact.Email = email;
-                contact.Phone = Int32.Parse(phone);
+                contact.Phone = phone;
                 contact.Age = Int32.Parse(age);
                 contact.Country = country;
                 contact.Education = education;
@@ -192,20 +192,20 @@ namespace Hiba.Controllers
                 _context.Contacts.Add(contact);
                 _context.SaveChanges();
 
-                var Email = new MimeMessage();
-                Email.From.Add(MailboxAddress.Parse("info@heba-ssi.com"));
-                Email.To.Add(MailboxAddress.Parse(email));
-                Email.Subject = "Admin Support Replay for:";
-                Email.Body = new TextPart(TextFormat.Html) { Text = massage };
-                // send email
-                using var smtp = new MailKit.Net.Smtp.SmtpClient();
+                //var Email = new MimeMessage();
+                //Email.From.Add(MailboxAddress.Parse("hamzasukkarforprogramming@gmail.com"));
+                //Email.To.Add(MailboxAddress.Parse("info@heba-ssi.com"));
+                //Email.Subject = "Admin Support Replay for:";
+                //Email.Body = new TextPart(TextFormat.Html) { Text = massage };
+                //// send email
+                //using var smtp = new MailKit.Net.Smtp.SmtpClient();
                 //smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
                 //smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
-                smtp.Connect("heba-ssi.com", 465);
-                //smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
-                smtp.Authenticate("info@heba-ssi.com", "Ah@123456");
-                smtp.Send(Email);
-                smtp.Disconnect(true);
+                ////smtp.Connect("heba-ssi.com", 465);
+                ////smtp.Authenticate("hamzasukkarforprogramming@gmail.com", "Ac123456");
+                ////smtp.Authenticate("info@heba-ssi.com", "Ah@123456");
+                //smtp.Send(Email);
+                //smtp.Disconnect(true);
                
 
 
