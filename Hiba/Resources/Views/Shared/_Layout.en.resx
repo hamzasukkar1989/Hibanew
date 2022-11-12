@@ -160,10 +160,10 @@
     <value>Damascus</value>
   </data>
   <data name="Economic Consultations" xml:space="preserve">
-    <value>Economic Consultations</value>
+    <value>Business and Economic Consultations</value>
   </data>
   <data name="Gallery" xml:space="preserve">
-    <value>Gallery</value>
+    <value>Photo album</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -197,6 +197,12 @@
   </data>
   <data name="Our Vision" xml:space="preserve">
     <value>Our Vision</value>
+  </data>
+  <data name="Pop up Button" xml:space="preserve">
+    <value>Start free test</value>
+  </data>
+  <data name="Pop up Text" xml:space="preserve">
+    <value>Test your social communication skills</value>
   </data>
   <data name="Psychological Counseling" xml:space="preserve">
     <value>psychological counseling</value>

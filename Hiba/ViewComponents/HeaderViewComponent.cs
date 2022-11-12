@@ -22,10 +22,10 @@ namespace Hiba.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
 
-            ViewBag.RegisterNow = "Register Now";
+            ViewBag.BookNow = "Book now";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.RegisterNow = "سجل الآن";
+                ViewBag.BookNow = "احجز الآن";
             }
             var Baners = await _header.GetBanners();
             return View(Baners);

@@ -42,11 +42,11 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
+    @*<style>
         .heading_main {
-            float:right
+            float: right
         }
-    </style>
+    </style>*@
 </head>
 
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
@@ -55,7 +55,7 @@
         <div class="loader">
             <img src="~/images/loader.gif" alt="#" />
         </div>
-    </div>  
+    </div>
     @await Component.InvokeAsync("Header")
 
     @await Component.InvokeAsync("AboutTheCenter")
@@ -202,9 +202,25 @@
     <script src="js~/images-loded.min.js"></script>
     <script src="js/custom.js"></script>-->
     @*<script>
-        $.get("Home/GetHeader", function (data) {
-            $("#SecoundHeader").html(data);
+            $.get("Home/GetHeader", function (data) {
+                $("#SecoundHeader").html(data);
+            });
+        </script>*@
+
+    @*<script type="text/javascript">
+        
+
+        $(function () {
+            $("#dialog").dialog({
+                title: "jQuery Dialog Popup",
+                buttons: {
+                    Close: function () {
+                        $(this).dialog('close');
+                    }
+                }
+            });
         });
+
     </script>*@
 </body>
 

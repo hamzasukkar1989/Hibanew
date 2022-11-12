@@ -33,19 +33,30 @@
     <link href="/css/responsiveslides.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/timeline.css" rel="stylesheet" />
-    @if (lang == "ar")
-    {
-		<style>
-            .heading_main {
-                float: right;
-                display: flex;
-            }
-        </style> 
+    <link rel="stylesheet" href="~/css/corner-popup.min.css">
+          @if (lang == "ar") {
+    <style>
+        .heading_main {
+            float: right;
+            display: flex;
+        }
+    </style>
 
-    }
+
+
+}
 </head>
 
 <body style="text-align:@textAlign">
+    <div id="corner-popup" class="popup-xs" style="display: flex; width: 500px;">
+        <div class="hide-mobile p-col p-sm-6">
+            <a href="https://scale.heba-ssi.com/social_eva/ar/SocialEvaluation"><img src="~/images/img-1.png" class="corner-img responsive"></a>
+        </div>
+        <div class="p-col p-xs-12 p-sm-6">
+            <div style="color:#0ea4a3" class="corner-close" tabindex="0"></div>
+            <div class="corner-container"><p style="color:#113a42;font-size: 20px;" class="corner-head">@Localizer["Pop up Text"]</p><a style="background-color:#0ea4a3"  target="_blank" href="https://scale.heba-ssi.com/social_eva/ar/SocialEvaluation" class="corner-btn" target="_self">@Localizer["Pop up Button"]</a></div>
+        </div>
+    </div>
     <header class="top-header" dir="rtl">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
@@ -217,10 +228,10 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax~/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="~/js/contact-form-script.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax~/libs/popper.js/1.16.0/umd/popper.min.js"></script>*@
+    @*<script src="~/js/contact-form-script.js"></script>*@
     <script src="~/js/custom.js"></script>
-    <script src="~/js/form-validator.min.js"></script>
+    @*<script src="~/js/form-validator.min.js"></script>*@
     <script src="~/js/images-loded.min.js"></script>
     <script src="~/js/isotope.min.js"></script>
     <script src="~/js/jquery.magnific-popup.min.js"></script>
@@ -230,6 +241,9 @@
     <script src="~/js/slider-index.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/smoothscroll.js"></script>
+    <script src="~/js/corner-popup.min.js"></script>
+
+
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         /* counter js */
@@ -316,6 +330,10 @@
         }(jQuery));
 
         jQuery(function ($) {
+
+            $(".corner-close").click(function () {
+                $("#corner-popup").css("display", "none");
+            })
             // custom formatting example
             $('.count-number').data('countToOptions', {
                 formatter: function (value, options) {
@@ -332,6 +350,7 @@
                 $this.countTo(options);
             }
         });
+
     </script>
 </body>
 </html>

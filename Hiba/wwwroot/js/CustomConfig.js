@@ -12,6 +12,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.allowedContent = true;
     config.toolbarCanCollapse = true;
     config.filebrowserUploadMethod = 'form';
+	config.extraPlugins = 'video';
   
     config.removeButtons = 'Source,Checkbox,ImageButton,Anchor,Radio,Save,Flash,Form,TextField,Textarea,Button,CreateDiv,Select,About,HiddenField,IFrame';
 };

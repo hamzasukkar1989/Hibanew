@@ -36,10 +36,10 @@ namespace Hiba.Controllers
         }
         public  IActionResult Check()
         {
-            ViewBag.imagename = "/images/check en.jpg";
+            ViewBag.imagename = "/images/check.jpg";
             if (cultureInfo.ToString() == "ar")
             {
-                ViewBag.imagename = "/images/check ar.jpg";
+                ViewBag.imagename = "/images/check.jpg";
             }
             return View();
         }

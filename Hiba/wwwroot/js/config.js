@@ -8,8 +8,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	//config.removeDialogTabs = 'image:advanced;image:Link;link:advanced;link:upload';
-	config.filebrowserImageUploadUrl = '/Home/UploadImage' //Action for Uploding image 
-	config.filebrowserUploadUrl = '/Home/UploadImage';
+	config.filebrowserImageUploadUrl = '/Media/UploadImage' //Action for Uploding image 
+	config.filebrowserUploadUrl = '/Media/UploadImage';
 	config.filebrowserUploadMethod = 'form';
 };
 CKEDITOR.on('dialogDefinition', function (ev) {

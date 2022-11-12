@@ -34,7 +34,7 @@ namespace Hiba.Controllers
             string imagepath = "";
             if(upload != null && upload.Length > 0)
             {
-                 imagepath = await _upload.UploadFile(upload, "Banner");
+                 imagepath = await _upload.UploadFile(upload, "Medias");
                 
             }
             //var successMessage = "image is uploaded successfully";

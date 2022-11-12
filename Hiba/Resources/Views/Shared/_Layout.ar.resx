@@ -198,6 +198,12 @@
   <data name="Our Vision" xml:space="preserve">
     <value>الرسالة والرؤية والأهداف</value>
   </data>
+  <data name="Pop up Button" xml:space="preserve">
+    <value>ابدأ الآن</value>
+  </data>
+  <data name="Pop up Text" xml:space="preserve">
+    <value>اختبر مهاراتك في التواصل الاجتماعي</value>
+  </data>
   <data name="Psychological Counseling" xml:space="preserve">
     <value>استشارات نفسية</value>
   </data>
